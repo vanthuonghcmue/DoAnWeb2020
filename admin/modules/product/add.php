@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Loại Sản Phẩm</label>
-                            <select class="form-control form-control-lg" name="loaihoa">
+                            <select class="form-control form-control-lg" name="loaisp">
                                 <?php 
                                 $dsLoaiSP = DataProvider::ExecuteQuery( "SELECT id, name FROM category");
                                 while($loai = mysqli_fetch_array($dsLoaiSP)){
@@ -63,7 +63,7 @@ if(@$_FILES['Hinh']['error'] == 0){
     if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/".@$_FILES['Hinh']["name"]))
         {
             $sql = "INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`, `category`, `content`, `head`, `view`, `hot`, `created_at`, `updata_up`) 
-            VALUES (NULL, '{$_REQUEST['TenSP']}', NULL,'{$_REQUEST['soluong']}', '{$_REQUEST['Gia']}', '{$_REQUEST['GiamGia']}', '{$_FILES['Hinh']['name']}', '{$_REQUEST['loaihoa']}', '{$_REQUEST['noidung']}', '0', '0', '0',current_timestamp() , current_timestamp())";
+            VALUES (NULL, '{$_REQUEST['TenSP']}', NULL,'{$_REQUEST['soluong']}', '{$_REQUEST['Gia']}', '{$_REQUEST['GiamGia']}', '{$_FILES['Hinh']['name']}', '{$_REQUEST['loaisp']}', '{$_REQUEST['noidung']}', '0', '0', '0',current_timestamp() , current_timestamp())";
             echo $sql;
             DataProvider::ExecuteQuery($sql);
 		}
