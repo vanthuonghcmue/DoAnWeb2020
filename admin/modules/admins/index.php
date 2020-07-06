@@ -19,6 +19,7 @@
                      <th>Cấp Độ</th>
                      <th>Địa Chỉ</th>
                      <th>Email</th>
+                     <th>Tên đăng nhập</th>
                      <th>password</th>
                      <th>Phone</th>
                      <th>Ngày Tạo</th>
@@ -27,7 +28,7 @@
                   </tr>
                   <?php
                   try {
-                     $sql = "SELECT id, name,address,email,password,phone,status, level,avatar, created_at, updata_up  FROM `admins`   ";
+                     $sql = "SELECT * FROM `admins`   ";
                      $result = DataProvider::ExecuteQuery($sql);
             
                      $stt = 0;
@@ -41,6 +42,7 @@
                              <td> {$row['level']} </td>
                              <td> {$row['address']} </td>
                              <td> {$row['email']} </td>
+                             <td> {$row['account']} </td>
                              <td> {$row['password']} </td>
                              <td> {$row['phone']} </td>
                              <td>{$row['created_at']}</td>

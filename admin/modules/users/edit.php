@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-status-wrap">
-                    <h4>Thêm Admin</h4>
-                <!-- Begin form add product -->
+                    <h4>Sửa Thông Tin User</h4>
+                    <!-- Begin form add product -->
                     <form action="" method="post" enctype="multipart/form-data">
-                    <?php
+                        <?php
                         try {
-                            $sql = "SELECT * FROM admins";
+                            $sql = "SELECT * FROM users";
                             if (isset($_GET['id'])) {
                                 $id = $_GET['id'];
                                 $sql .= " WHERE id = " . $id;
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         ?>
                         <div class="form-group">
-                            <label>Tên Admin</label>
+                            <label>Tên User</label>
                             <input type="text" class="form-control" placeholder="Enter name" name="TenAD" value="<?php echo $row['name'] ?>">
                         </div>
                         <div class="form-group">
@@ -44,21 +44,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label>Tên Đăng Nhập</label>
-                            <input type="text" class="form-control" placeholder="NguyenVanA" name="account" value="<?php echo $row['account'] ?>">
+                            <input type="text" class="form-control" placeholder="NguyenVanA" name="account" value="<?php echo $row['Account'] ?>">
                         </div>
-                        <div class="form-group">   
+                        <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="" name="password"value="<?php echo $row['password'] ?>">
+                            <input type="password" class="form-control" placeholder="" name="password" value="<?php echo $row['password'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" >
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh">
                             <img src="img_users/<?php echo $row['avatar'] ?>">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Submit</button>
 
-                <!-- End form add product -->
+                        <!-- End form add product -->
                     </form>
 
                 </div>
@@ -68,12 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <?php
 if (isset($_REQUEST['TenAD'])) {
-    $sql = "UPDATE `admins` SET `name` = '{$_REQUEST['TenAD']}', `address` = '{$_REQUEST['address']}', `email` = '{$_REQUEST['email']}', `account` = '{$_REQUEST['account']}', `password` = '{$_REQUEST['password']}', `phone` = '{$_REQUEST['phone']}' WHERE `admins`.`id` = $id";
+    $sql = "UPDATE `users` SET `name` = '{$_REQUEST['TenAD']}', `email` = '{$_REQUEST['email']}', `address` = '{$_REQUEST['address']}', `phone` = '{$_REQUEST['phone']}', `Account` = '{$_REQUEST['account']}',
+             `password` = '{$_REQUEST['password']}', `created_at` = NULL, `updata_up` = NULL WHERE `users`.`id` = $id";
     echo $sql;
     DataProvider::ExecuteQuery($sql);
     if (@$_FILES['Hinh']['error'] == 0) {
-        move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_admins/".@$_FILES['Hinh']["name"]);
-        $sql = "UPDATE `admins` SET  `avatar` = '{$_FILES['Hinh']["name"]}' WHERE `admins`.`id` = $id";
+        move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_users/" . @$_FILES['Hinh']["name"]);
+        $sql = "UPDATE `users` SET  `avatar` = '{$_FILES['Hinh']["name"]}' WHERE `users`.`id` = $id";
         echo $sql;
         DataProvider::ExecuteQuery($sql);
     }

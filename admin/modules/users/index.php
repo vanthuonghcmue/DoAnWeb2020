@@ -1,4 +1,4 @@
-
+<?php session_start ()?>
 <?php require_once __DIR__ . "/../../autoload/autoload.php"; ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
 <div class="product-status mg-tb-15">
@@ -7,49 +7,44 @@
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
             <div class="product-status-wrap">
-               <h4>Danh Mục</h4>
+               <h4>Danh Sách User</h4>
                <div class="add-product">
-                  <a href="add.php">Thêm Danh Mục</a>
+                  <a href="add.php">Thêm User</a>
                </div>
                <table>
                   <tr>
                      <th>Stt</th>
-                     <th>Hình Ảnh</th>                 
-                     <th>Danh mục</th>
-                     <th>Loại sản phẩm</th>
-                     <th>Tên Sản Phẩm</th>
-                     <th>Số Lượng</th>
-                     <th>Giá bán</th>
-                     <th>Ngày thêm</th>
+                     <th>Ảnh Đại Diện</th>
+                     <th>Tên User</th>
+                     <th>Địa Chỉ</th>
+                     <th>Email</th>
+
+                     <th>Account</th>
+                     <th>password</th>
+                     <th>Phone</th>
+                     <th>Ngày Tạo</th>
                      <th>Ngày Sửa</th>
                      <th>Setting</th>
                   </tr>
-
                   <?php
                   try {
-                     $sql = "SELECT * FROM `product`";
+                     $sql = "SELECT id, name,address,email,Account, password,phone, avatar, created_at, updata_up  FROM `users`   ";
                      $result = DataProvider::ExecuteQuery($sql);
+            
                      $stt = 0;
-                     while ($row = mysqli_fetch_array($result)) 
-                     {
-                        $sql1="SELECT name FROM `category` WHERE `category`.`id` = '{$row['category']}'";                  
-                        $result1= DataProvider::ExecuteQuery($sql1);
-                        $row1= mysqli_fetch_array($result1);
-
-                        $sql2="SELECT * FROM `type` WHERE `type`.`id` = '{$row['type']}'";                  
-                        $result2= DataProvider::ExecuteQuery($sql2);
-                        $row2= mysqli_fetch_array($result2);
-
+                     while ($row = mysqli_fetch_array($result)) {
                         $stt++;
                         $chuoi = <<< EOD
                              <tr>
                              <td>$stt</td>
-                             <td><img src="img_product/{$row['avatar']}" ></img></td>                           
-                             <td> {$row1['name']}</td>
-                             <td> {$row2['name']}</td>
+                             <td><img src="img_users/{$row['avatar']}" ></img>  </td>
                              <td> {$row['name']} </td>
-                             <td> {$row['soluong']} </td>
-                             <td> {$row['gia']} </td>
+                             
+                             <td> {$row['address']} </td>
+                             <td> {$row['email']} </td>
+                             <td> {$row['Account']} </td>
+                             <td> {$row['password']} </td>
+                             <td> {$row['phone']} </td>
                              <td>{$row['created_at']}</td>
                              <td>{$row['updata_up']}</td>
                              <td>
@@ -63,7 +58,7 @@
                   } catch (Exception $ex) {
                      echo "Không thể mở CSDL";
                   }
-               ?>
+                  ?>
                </table>
                <div class="custom-pagination">
                   <nav aria-label="Page navigation example">

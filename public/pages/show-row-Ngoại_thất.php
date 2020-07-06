@@ -1,4 +1,4 @@
-
+<?php require_once __DIR__ . "/../../layouts/header.php" ?>
     <!-- Begin element -->
     <element class="container">
         <div class="left_nav">
@@ -137,3 +137,4 @@
         </div>
         <div class="clearfix"></div>
     </element>
+ <?php require_once __DIR__ . "/../../layouts/footer.php" ?>

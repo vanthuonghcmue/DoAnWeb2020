@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Copyright &copy; 2018 <a href="#">Colorlib</a> All rights reserved.</p>
+                            <p>Copyright &copy; 2020 <a href="#">Thực hiện bởi</a> Nhóm TTUTT</p>
                         </div>
                     </div>
                 </div>

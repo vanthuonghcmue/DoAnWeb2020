@@ -10,11 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-status-wrap">
-                    <h4>Thêm Admin</h4>
+                    <h4>Thêm User</h4>
                 <!-- Begin form add product -->
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label>Tên Admin</label>
+                            <label>Tên User</label>
                             <input type="text" class="form-control" placeholder="Enter name" name="TenAD">
                         </div>
                         <div class="form-group">
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">   
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="" name="GiamGia">
+                            <input type="password" class="form-control" placeholder="" name="password">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
@@ -54,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <?php
 if(@$_FILES['Hinh']['error'] == 0){
-    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_admins/".@$_FILES['Hinh']["name"]))
+    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_users/".@$_FILES['Hinh']["name"]))
         {
-            $sql = "INSERT INTO `admins` (`id`, `name`, `address`, `email`, `account`,`password`, `phone`, `status`, `level`, `avatar`, `created_at`, `updata_up`) 
-            VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['address']}','{$_REQUEST['email']}', '{$_REQUEST['account']}','{$_REQUEST['password']}', '{$_REQUEST['phone']}', '1','1','{$_FILES['Hinh']['name']}', current_timestamp() , current_timestamp())";
+            $sql = "INSERT INTO `users` (`id`, `name`, `email`,`address`,  `phone`,`Account`, `password`, `avatar`, `status`,`token`,`created_at`, `updata_up`) 
+            VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['email']}','{$_REQUEST['address']}', '{$_REQUEST['phone']}', '{$_REQUEST['account']}','{$_REQUEST['password']}','{$_FILES['Hinh']['name']}',  '1','1', current_timestamp() , current_timestamp())";
             echo $sql;
             DataProvider::ExecuteQuery($sql);
 		}

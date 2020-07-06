@@ -28,15 +28,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                echo "Không thể mở CSDL";
                            }
                            ?>
-                            <label>Loại Sản Phẩm</label>
+                            <label>Danh Mục Sản Phẩm</label>
                             <select class="form-control form-control-lg" name="loaisp">
                                 <?php 
                                 $dsLoaiSP = DataProvider::ExecuteQuery( "SELECT id, name FROM category");
-                                while($loai = mysqli_fetch_array($dsLoaiSP)){
-                               echo  " <option value='{$loai['id']}'> {$loai['name']} </option>"  ;
+                                while($loai = mysqli_fetch_array($dsLoaiSP)){ ?>
+                                 <option value='<?php echo $loai['id']?>' <?php echo $row['category']==$loai['id'] ? "selected ='selected'" : ' ' ?>> <?php echo $loai['name'] ?> </option> ;
+                                <?php }?>
+                                
+                            </select>
+                            <div class="form-group">
+                            <label>Loại Sản Phẩm</label>
+                            <select class="form-control form-control-lg" name="type">
+                                <?php 
+                                $dsLoai= DataProvider::ExecuteQuery( "SELECT * FROM `type`");
+                                while($loaisp = mysqli_fetch_array($dsLoai)){
+                               echo  " <option value='{$loaisp['id']}'> {$loaisp['name']} </option>"  ;
                                 }
                                 ?>
                             </select>
+                            
+                        </div>
                         </div>
                         <div class="form-group">
                             <label>Tên Sản Phẩm</label>
@@ -56,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" <?php echo "value=''">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô Tả Sản Phẩm</label>
@@ -73,12 +85,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 <?php
-if(@$_FILES['Hinh']['error'] == 0){
-    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/".@$_FILES['Hinh']["name"]))
-        {
-            $sql = "UPDATE `product` SET `name` = '{$_REQUEST['TenSP']}',`soluong` = '{$_REQUEST['soluong']}' ,`gia` = '{$_REQUEST['Gia']}',`sale` = '{$_REQUEST['GiamGia']}' ,`avatar` = '{$_FILES['Hinh']['name']}' ,`category` = '{$_REQUEST['loaisp']}',`content` = '{$_REQUEST['noidung']} 'WHERE `product`.`id` = $id";
-            echo $sql;
-            DataProvider::ExecuteQuery($sql);
-		}
+
+if (isset($_REQUEST['TenSP'])) {
+    $sql = "UPDATE `product` SET `name` = '{$_REQUEST['TenSP']}',`soluong` = '{$_REQUEST['soluong']}' ,`gia` = '{$_REQUEST['Gia']}',`sale` = '{$_REQUEST['GiamGia']}' ,`category` = '{$_REQUEST['loaisp']}',`type` = '{$_REQUEST['type']}',`content` = '{$_REQUEST['noidung']} 'WHERE `product`.`id` = $id";
+    echo $sql;
+    DataProvider::ExecuteQuery($sql);
+    if (@$_FILES['Hinh']['error'] == 0) {
+        move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/". @$_FILES['Hinh']["name"]);
+        $sql = "UPDATE `product` SET  `avatar` = '{$_FILES['Hinh']['name']}' ,' WHERE `product`.`id` = $id";
+        echo $sql;
+        DataProvider::ExecuteQuery($sql);
+    }
 }
+
 require_once __DIR__ . "/../../layouts/footer.php" ?>
