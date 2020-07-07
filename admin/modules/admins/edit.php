@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" >
-                            <img src="img_users/<?php echo $row['avatar'] ?>">
+                            <img src="img_admins/<?php echo $row['avatar'] ?>">
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
