@@ -1,7 +1,7 @@
 <?php
    require_once __DIR__ . "/../../autoload/autoload.php";
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       header('location: http://localhost:8080/DoAnWeb202011/admin/modules/category');
+       header('location: http://localhost:8080/DoAnWeb2020/admin/modules/category');
    }
    ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
@@ -16,7 +16,7 @@
       <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="product-status-wrap">
-               <h4>Sửa Danh Mục Sản Phẩm</h4>
+               <h4>Thêm Danh Mục Sản Phẩm</h4>
                <form action="" method="post" enctype="multipart/form-data" id="editCategory">
                   <div class="row">
                      <div class="col-lg-8">
@@ -60,9 +60,10 @@
    </div>
 </div>
 <?php
-   if (isset($_POST['tendanhmuc'])) {
-       $tendanhmuc = $_POST['tendanhmuc'];
-       $sql = "UPDATE `category` SET `name` = '$tendanhmuc' WHERE `category`.`id` = $id";
+   $tendanhmuc = @$_REQUEST['tendanhmuc'];
+   if (isset($tendanhmuc)) {
+       $sql = "INSERT INTO `category` (`id`, `name`, `slug`, `images`, `banner`, `home`, `status`, `created_at`, `updated`) VALUES (NULL, '{$tendanhmuc}', NULL, NULL, NULL, '0', '0', current_timestamp(), current_timestamp())";
+       echo $sql;
        $result = DataProvider::ExecuteQuery($sql);
    }
    require_once __DIR__ . "/../../layouts/footer.php"

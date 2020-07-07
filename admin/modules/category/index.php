@@ -34,7 +34,7 @@
                              <td>
                                  <button class={"pd-setting"} ></button>
                              </td>
-                             <td>{$row['created_at']}/td>
+                             <td>{$row['created_at']}</td>
                              <td>{$row['updated']}</td>
                              <td>
                                  <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
