@@ -68,7 +68,11 @@
     <!-- modernizr JS
 		============================================ -->
     <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
-
+    <style>
+    h1{
+    color: #FA5882;
+}
+    </style>
 </head>
 
 <body>
@@ -145,10 +149,10 @@
     <div class="clearfix"> </div>
     <div id="SITE_HEADER-placeholder"></div>
 
-    <div class="single-product-tab-area mg-t-15 mg-b-30">
+    <div class="single-product-tab-area mg-t-15 mg-b-30" id="all">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="img">
                     <div id="myTabContent1" class="tab-content">
                         <div class="product-tab-list tab-pane fade active in" id="single-tab1">
                             <img src="img/product/bg-1.jpg" alt="" />
@@ -181,26 +185,15 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" id="addcart">
                     <div class="single-product-details res-pro-tb">
-                        <h1>Jewelery ITEM TITLE</h1>
-                        <span class="single-pro-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                        <h1 id="h1">Jewelery ITEM TITLE</h1>
                         <div class="single-pro-price">
-                            <span class="single-regular">$150.00</span><span class="single-old"><del>$20.00</del></span>
-                        </div>
-                        <div class="single-pro-size">
-                            <h6>Size</h6>
-                            <span>S</span> <span>M</span> <span>L</span> <span>XL</span> <span>XXL</span>
+                            <span class="single-regular" id="giatien">350.000đ</span>
                         </div>
                         <div class="color-quality-pro">
-                            <div class="color-quality-details">
-                                <h5>Color</h5>
-                                <span class="red"></span> <span class="green"></span> <span class="yellow"></span> <span
-                                    class="black"></span> <span class="white"></span>
-                            </div>
                             <div class="color-quality">
-                                <h4>Quality</h4>
+                                <h4 id="quantity">Số lượng</h4>
                                 <div class="quantity">
                                     <div class="pro-quantity-changer">
                                         <input type="text" value="1" />
@@ -210,7 +203,7 @@
                             <div class="clear"></div>
                             <div class="single-pro-button">
                                 <div class="pro-button">
-                                    <a href="#">ADD TO Cart</a>
+                                    <a href="#" id="cart">Thêm vào giỏ hàng</a>
                                 </div>
                                 <div class="pro-viwer">
                                     <a href="#"><i class="fa fa-heart"></i></a>
@@ -219,17 +212,16 @@
                             </div>
                             <div class="clear"></div>
                             <div class="single-social-area">
-                                <h3>share this on</h3>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-feed"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <h3>Chia Sẻ Với:</h3>
+                                <a href="#"><i id="face" class="fa fa-facebook"></i></a>
+                                <a href="#"><i id="gg" class="fa fa-google-plus"></i></a>
+                                <a href="#"><i id="twi"class="fa fa-twitter"></i></a>
+                                <a href="#"><i id="ins" class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                         <div class="single-pro-cn">
-                            <h3>OVERVIEW</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            <h3><b>Thông tin sản phẩm</b></h3>
+                            <p id="thongtin">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                 exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                 consequat. Duis aute irure dolor in reprehenderit in voluptate </p>
@@ -241,15 +233,14 @@
     </div>
     <!-- Single pro tab End-->
     <!-- Single pro tab review Start-->
-    <div class="single-pro-review-area mt-t-30 mg-b-15">
+    <div class="single-pro-review-area mt-t-30 mg-b-15" id="des">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul id="myTab" class="tab-review-design">
-                        <li class="active"><a href="#description">description</a></li>
-                        <li><a href="#reviews"><span><i class="fa fa-star"></i><i class="fa fa-star"></i></span> reviews
-                                (1) <span><i class="fa fa-star"></i><i class="fa fa-star"></i></span></a></li>
-                        <li><a href="#INFORMATION">INFORMATION</a></li>
+                        <li class="active"><a href="#description">MÔ TẢ</a></li>
+                        <li><a href="#reviews"><span><i class="fa fa-star"></i><i class="fa fa-star"></i></span>ĐÁNH GIÁ<span><i class="fa fa-star"></i><i class="fa fa-star"></i></span></a></li>
+                        <li><a href="#INFORMATION">THÔNG TIN</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="product-tab-list product-details-ect tab-pane fade active in" id="description">
@@ -285,11 +276,11 @@
                                         <div class="review-content-section">
                                             <div class="card-block">
                                                 <div class="text-muted f-w-400">
-                                                    <p>No reviews yet.</p>
+                                                    <p>Chưa có đánh giá nào</p>
                                                 </div>
                                                 <div class="m-t-10">
                                                     <div class="txt-primary f-18 f-w-600">
-                                                        <p>Your Rating</p>
+                                                        <p>Đánh giá của bạn</p>
                                                     </div>
                                                     <div class="stars stars-example-css detail-stars">
                                                         <div class="review-rating">
