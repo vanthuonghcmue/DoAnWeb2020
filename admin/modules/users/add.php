@@ -5,6 +5,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
+<style>
+    label.error{
+        color:red;
+        font-style: italic;
+    }
+    </style>
 <div class="product-status mg-tb-15">
     <div class="container-fluid">
         <div class="row">
@@ -12,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="product-status-wrap">
                     <h4>Thêm User</h4>
                 <!-- Begin form add product -->
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data" id="USadd">
                         <div class="form-group">
                             <label>Tên User</label>
-                            <input type="text" class="form-control" placeholder="Enter name" name="TenAD">
+                            <input type="text" class="form-control" placeholder="Enter name" name="TenUS">
                         </div>
                         <div class="form-group">
                             <label>Địa Chỉ</label>
@@ -46,7 +52,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <!-- End form add product -->
                     </form>
+                    <script>
+                        $(function () {
+                        $("#USadd").validate({
+                            rules: {
+                                TenUS: { required: true ,minlength:3 },
+                                address:{required: true},
+                                phone:{required: true,digits:true,rangelength:[10,11]},
+                                account:{ required: true ,minlength:3 },
+                                email:{required: true,email:true},
+                                password:{required:true,minlength:8},
+                                Hinh:{required:true,extension:"jpg|png|bmp"}
+                            },
+                            messages: {
+                                TenUS: { required:"Vui lòng nhập tên User" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
+                                address: { required: "Vui lòng nhập địa chỉ"},
+                                phone:{required: "Vui lòng nhập số điện thoại",digits:"Vui lòng nhập số nguyên",rangelength:"Số điện thoại chưa đúng định dạng"},
+                                account:{ required:"Vui lòng nhập tên đăng nhập" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
+                                email:{required: "Vui lòng nhập email",email:"Vui lòng điền đúng định dạng email"},
+                                password:{required: "Vui lòng nhập password",minlength:"Vui lòng nhập lớn hơn 8 kí tự"},
+                                Hinh:{required:"Vui lòng chọn ảnh",extension:"Chỉ chấp nhận file jpg|png|bmp"}
 
+                            }
+            
+                        });
+                        });
+                     
+                        </script>
                 </div>
             </div>
         </div>

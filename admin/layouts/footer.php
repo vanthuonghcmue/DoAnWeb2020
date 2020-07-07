@@ -13,7 +13,6 @@
 
     <!-- jquery
 		============================================ -->
-    <script src="/DoAnWeb2020/public/admin/js/vendor/jquery-1.11.3.min.js"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="/DoAnWeb2020/public/admin/js/bootstrap.min.js"></script>

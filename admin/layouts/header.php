@@ -59,6 +59,11 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/DoAnWeb2020/public/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+     <!-- validation -->
+    <script src="/DoAnWeb2020/public/admin/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+
 </head>
 
 <body>
