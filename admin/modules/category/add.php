@@ -20,20 +20,8 @@
                <form action="" method="post" enctype="multipart/form-data" id="editCategory">
                   <div class="row">
                      <div class="col-lg-8">
-                        <?php
-                           try {
-                               $sql = "SELECT name FROM category";
-                               if (isset($_GET['id'])) {
-                                   $id = $_GET['id'];
-                                   $sql .= " WHERE id = " . $id;
-                               }
-                               $result = DataProvider::ExecuteQuery($sql);
-                               $row = mysqli_fetch_array($result);
-                           } catch (Exception $ex) {
-                               echo "Không thể mở CSDL";
-                           }
-                           ?>
-                        <input type="text" class="form-control" placeholder="Tên danh mục mới" name="tendanhmuc" <?php echo "value='{$row['name']}'" ?>>
+                       
+                        <input type="text" class="form-control" placeholder="Tên danh mục mới" name="tendanhmuc" >
                      </div>
                      <div class="col-lg-4">
                         <input class="btn btn-primary" type="submit" value="Submit">
