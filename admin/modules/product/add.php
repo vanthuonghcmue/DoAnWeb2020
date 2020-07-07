@@ -21,16 +21,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <!-- Begin form add product -->
                         <form action="" method="post" enctype="multipart/form-data" id="formAdd1">
                             <div class="form-group">
-                                <label>Loại Sản Phẩm</label>
+                            <label>Danh mục</label>
                                 <select class="form-control form-control-lg" name="loaisp">
-                                    <?php
-                                    $dsLoaiSP = DataProvider::ExecuteQuery("SELECT id, name FROM category");
-                                    while ($loai = mysqli_fetch_array($dsLoaiSP)) {
-                                        echo  " <option value='{$loai['id']}'> {$loai['name']} </option>";
-                                    }
-                                    ?>
-                                </select>
+                                <?php 
+                                $dsLoaiSP = DataProvider::ExecuteQuery( "SELECT id, name FROM category");
+                                while($loai = mysqli_fetch_array($dsLoaiSP)){
+                               echo  " <option value='{$loai['id']}'> {$loai['name']} </option>"  ;
+                                }
+                                ?>
+                            </select>
                             </div>
+                            <div class="form-group">
+                            <label>Loại Sản Phẩm</label>
+                            <select class="form-control form-control-lg" name="type">
+                                <?php 
+                                $dsLoai= DataProvider::ExecuteQuery( "SELECT * FROM `type`");
+                                while($loaisp = mysqli_fetch_array($dsLoai)){
+                               echo  " <option value='{$loaisp['id']}'> {$loaisp['name']} </option>"  ;
+                                }
+                                ?>
+                            </select>
                             <div class="form-group">
                                 <label>Tên Sản Phẩm</label>
                                 <input type="text" class="form-control" placeholder="Enter name" name="TenSP">
@@ -94,13 +104,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <?php
-if (@$_FILES['Hinh']['error'] == 0) {
-    if (move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/" . @$_FILES['Hinh']["name"])) {
-        $sql = "INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`, `category`, `content`, `head`, `view`, `hot`, `created_at`, `updata_up`) 
-            VALUES (NULL, '{$_REQUEST['TenSP']}', NULL,'{$_REQUEST['soluong']}', '{$_REQUEST['Gia']}', '{$_REQUEST['GiamGia']}', '{$_FILES['Hinh']['name']}', '{$_REQUEST['loaisp']}', '{$_REQUEST['noidung']}', '0', '0', '0',current_timestamp() , current_timestamp())";
-        echo $sql;
-        DataProvider::ExecuteQuery($sql);
-    }
+if(@$_FILES['Hinh']['error'] == 0){
+    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/".@$_FILES['Hinh']["name"]))
+        {
+            $sql = "INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`, `category`,`type`, `content`, `head`, `view`, `hot`, `created_at`, `updata_up`) 
+            VALUES (NULL, '{$_REQUEST['TenSP']}', NULL,'{$_REQUEST['soluong']}', '{$_REQUEST['Gia']}', '{$_REQUEST['GiamGia']}', '{$_FILES['Hinh']['name']}', '{$_REQUEST['loaisp']}','{$_REQUEST['type']}', '{$_REQUEST['noidung']}', '0', '0', '0',current_timestamp() , current_timestamp())";
+            DataProvider::ExecuteQuery($sql);
+		}
 }
 
 require_once __DIR__ . "/../../layouts/footer.php" ?>

@@ -78,18 +78,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         });
                         });
                      
-                        </script>
+                    </script>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <?php
-if(@$_FILES['Hinh']['error'] == 0){
-    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_admins/".@$_FILES['Hinh']["name"]))
+if(@$_FILES['Hinhdd']['error'] == 0){
+    if(move_uploaded_file(@$_FILES['Hinhdd']["tmp_name"], "img_admins/".@$_FILES['Hinhdd']["name"]))
         {
-            $sql = "INSERT INTO `admins` (`id`, `name`, `address`, `email`, `password`, `phone`, `status`, `level`, `avatar`, `created_at`, `updata_up`) 
-            VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['address']}','{$_REQUEST['email']}', '{$_REQUEST['password']}', '{$_REQUEST['phone']}', '1','1','{$_FILES['Hinh']['name']}', current_timestamp() , current_timestamp())";
+            $sql = "INSERT INTO `admins` (`id`, `name`, `address`, `email`, `account`,`password`, `phone`, `status`, `level`, `avatar`, `created_at`, `updata_up`) 
+            VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['address']}','{$_REQUEST['email']}', '{$_REQUEST['account']}','{$_REQUEST['pass']}', '{$_REQUEST['phone']}', '1','1','{$_FILES['Hinhdd']['name']}', current_timestamp() , current_timestamp())";
             echo $sql;
             DataProvider::ExecuteQuery($sql);
 		}

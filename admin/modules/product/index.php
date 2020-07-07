@@ -9,7 +9,7 @@
             <div class="product-status-wrap">
                <h4>Danh Mục</h4>
                <div class="add-product">
-                  <a href="add.php">Thêm Danh Mục</a>
+                  <a href="add.php">Thêm Sản Phẩm</a>
                </div>
                <table>
                   <tr>
@@ -32,7 +32,8 @@
                      $stt = 0;
                      while ($row = mysqli_fetch_array($result)) 
                      {
-                        $sql1="SELECT name FROM `category` WHERE `category`.`id` = '{$row['category']}'";                  
+                        $sql1="SELECT name FROM `category`";      
+                        // WHERE `category`.`id` = '{$row['category']}'            
                         $result1= DataProvider::ExecuteQuery($sql1);
                         $row1= mysqli_fetch_array($result1);
 
