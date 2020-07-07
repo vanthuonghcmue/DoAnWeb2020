@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label>Số Điện Thoại</label>
-                            <input type="number" class="form-control" placeholder="" name="phone">
+                            <input type="number" class="form-control" placeholder="0345197643" name="phone">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
@@ -37,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">   
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="" name="pass">
+                            <input type="password" class="form-control" placeholder="**********" name="pass">
                         </div>
                         <div class="form-group">   
                             <label>Nhập lại password</label>
-                            <input type="password" class="form-control" placeholder="" name="nhappass">
+                            <input type="password" class="form-control" placeholder="***********" name="nhappass">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
