@@ -34,23 +34,30 @@
                     src="../resources/img/logoCong_ty_Co_Phan_Kien_Truc_Xay_Dung_song_phat.jpg.png" alt="logo"></a>
             <div>
                 <ul class="main-nav">
-                    <?php 
-                         $category = DataProvider::ExecuteQuery( "SELECT id, name FROM category");
-                        while($loai = mysqli_fetch_array($category)){
-                        $type = DataProvider::ExecuteQuery( "SELECT * FROM `type` WHERE `category` = {$loai['id']}");
-                        while($type1 = mysqli_fetch_array($type)){
-                            $chuoi = <<< EOD
-                    <li><a class="a" href="">  {$loai['name']}</a>
-                        <ul class="submenu">
-                            <li><a href=""> {$type1['name']}</a></li>
-                            
-                        </ul>
-                    </li>
-                
-                EOD;
-                echo $chuoi;
-            }
-            }
+                <?php
+                    $sql = "SELECT * FROM `category`";
+                    $category = DataProvider::ExecuteQuery($sql);
+                    while ($loai = mysqli_fetch_array($category)) {
+
+                        $chuoi = <<< EOD
+                          <li><a class="a" href="/DoAnWeb2020/public/pages/show-row.php?id={$loai['id']}">  {$loai['name']}</a>
+                          <ul class="submenu">
+                          EOD;
+                        echo $chuoi;
+
+                        $sql1 = "SELECT * FROM `type` WHERE `category` = {$loai['id']}";
+                        $type = DataProvider::ExecuteQuery("$sql1");
+
+                        while ($type1 = mysqli_fetch_array($type)) {
+                            $chuoi1 = <<< EOD
+                      
+                            <li><a href="/DoAnWeb2020/public/pages/show-row.php?id={$type1['id']}"> {$type1['name']}</a></li>                                                                                  
+                     EOD;
+                            echo $chuoi1;
+                        }
+                        echo " </ul>";
+                    }
+                    echo   "</li>";
                     ?>
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
                     <a class="far fa-user " href="../pages/login2.html" id="icoi"></a>

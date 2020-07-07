@@ -1,17 +1,16 @@
-<?php require_once __DIR__ . "/../autoload/autoload.php";?>
+<?php require_once __DIR__ . "/../autoload/autoload.php"; ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    
+
     <title>Nội thất| Ngoại thất và Decor| Hàng xuất khẩu cao cấp</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./vendors/fonts/css/fontawesome.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/redirect?Id=CvmsVv9asuSiOaRBBz9urpS909ixNzNqI37%2b8O1yQr4%3d">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css">
     <link rel="stylesheet" href="./vendors/css/bootstrap.css">
     <link rel="stylesheet" href="./resources/css/queries.css">
@@ -28,29 +27,35 @@
         <!-- Begin head  -->
         <nav>
 
-            <a href="#Home"><img class="logo"
-                    src="./resources/img/logoCong_ty_Co_Phan_Kien_Truc_Xay_Dung_song_phat.jpg.png" alt="logo"></a>
+            <a href="#Home"><img class="logo" src="./resources/img/logoCong_ty_Co_Phan_Kien_Truc_Xay_Dung_song_phat.jpg.png" alt="logo"></a>
             <div>
                 <ul class="main-nav">
-                <?php 
-                         $category = DataProvider::ExecuteQuery( "SELECT id, name FROM category");
-                        while($loai = mysqli_fetch_array($category)){
-                        $type = DataProvider::ExecuteQuery( "SELECT * FROM `type` WHERE `category` = {$loai['id']}");
-                        while($type1 = mysqli_fetch_array($type)){
-                            $chuoi = <<< EOD
-                    <li><a class="a" href="/DoAnWeb2020/public/pages/show-row.php?id={$loai['id']}">  {$loai['name']}</a>
-                        <ul class="submenu">
-                            <li><a href="/DoAnWeb2020/public/pages/show-row.php?id={$type1['id']}"> {$type1['name']}</a></li>
-                            
-                        </ul>
-                    </li>
-                
-                EOD;
-                echo $chuoi;
-            }
-            }
+                    <?php
+                    $sql = "SELECT * FROM `category`";
+                    $category = DataProvider::ExecuteQuery($sql);
+                    while ($loai = mysqli_fetch_array($category)) {
+
+                        $chuoi = <<< EOD
+                          <li><a class="a" href="/DoAnWeb2020/public/pages/show-row.php?id={$loai['id']}">  {$loai['name']}</a>
+                          <ul class="submenu">
+                          EOD;
+                        echo $chuoi;
+
+                        $sql1 = "SELECT * FROM `type` WHERE `category` = {$loai['id']}";
+                        $type = DataProvider::ExecuteQuery("$sql1");
+
+                        while ($type1 = mysqli_fetch_array($type)) {
+                            $chuoi1 = <<< EOD
+                      
+                            <li><a href="/DoAnWeb2020/public/pages/show-row.php?id={$type1['id']}"> {$type1['name']}</a></li>                                                                                  
+                     EOD;
+                            echo $chuoi1;
+                        }
+                        echo " </ul>";
+                    }
+                    echo   "</li>";
                     ?>
-                   
+
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
                     <a class="far fa-user " href="./pages/login2.html" id="icoi"></a>
                 </ul>
@@ -82,34 +87,19 @@
                 các sản phẩm ngoài trời của chúng tôi đều thích hợp sử dụng
             </p>
         </div>
-       
+
 
         <div id="slider" class="gioithieuimg col span-1_of_2 popup-gallery">
-            <a href="./resources/img/hình trang chủ/ghế 2.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 2.webp" alt="photo" stt="1"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 1.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 1.webp" alt="photo" stt="0"></a>
-            <a href="./resources/img/hình trang chủ/ghế 3.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 3.webp" alt="photo" stt="2"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 4.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 4.webp" alt="photo" stt="3"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 5.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 5.webp" alt="photo" stt="4"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 6.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 6.webp" alt="photo" stt="5"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 7.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 7.webp" alt="photo" stt="6"
-                    style="display:none"></a>
-            <a href="./resources/img/hình trang chủ/ghế 8.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="slide" src="./resources/img/hình trang chủ/ghế 8.webp" alt="photo" stt="7"
-                    style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 2.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 2.webp" alt="photo" stt="1" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 1.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 1.webp" alt="photo" stt="0"></a>
+            <a href="./resources/img/hình trang chủ/ghế 3.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 3.webp" alt="photo" stt="2" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 4.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 4.webp" alt="photo" stt="3" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 5.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 5.webp" alt="photo" stt="4" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 6.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 6.webp" alt="photo" stt="5" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 7.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 7.webp" alt="photo" stt="6" style="display:none"></a>
+            <a href="./resources/img/hình trang chủ/ghế 8.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="slide" src="./resources/img/hình trang chủ/ghế 8.webp" alt="photo" stt="7" style="display:none"></a>
         </div>
-         <!-- kết thúc phần giới thiệu sản phẩm mới -->
+        <!-- kết thúc phần giới thiệu sản phẩm mới -->
     </section>
 
     <section class="products-section container-fluid ">
@@ -150,23 +140,12 @@
     <section id="water" class="advertisement-section row">
         <!-- Bắt đầu giới thiệu về thương hiệu -->
         <div class="col md-6 popup-gallery2 ">
-            <a href="./resources/img/gt.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/gt.webp" alt="poto" st="0"> </a>
-            <a href="./resources/img/hình trang chủ/thác nước 1.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 1.webp" alt="poto"
-                    st="1" style="display:none"> </a>
-            <a href="./resources/img/hình trang chủ/thác nước 2.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 2.webp" alt="poto"
-                    st="2" style="display:none"> </a>
-            <a href="./resources/img/hình trang chủ/thác nước 3.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 3.webp" alt="poto"
-                    st="3" style="display:none"> </a>
-            <a href="./resources/img/hình trang chủ/thác nước 4.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 4.webp" alt="poto"
-                    st="4" style="display:none"> </a>
-            <a href="./resources/img/hình trang chủ/thác nước 5.webp" title="sản phẩm mới nhất của bộ sưu tập"><img
-                    class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 5.webp" alt="poto"
-                    st="5" style="display:none"> </a>
+            <a href="./resources/img/gt.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/gt.webp" alt="poto" st="0"> </a>
+            <a href="./resources/img/hình trang chủ/thác nước 1.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 1.webp" alt="poto" st="1" style="display:none"> </a>
+            <a href="./resources/img/hình trang chủ/thác nước 2.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 2.webp" alt="poto" st="2" style="display:none"> </a>
+            <a href="./resources/img/hình trang chủ/thác nước 3.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 3.webp" alt="poto" st="3" style="display:none"> </a>
+            <a href="./resources/img/hình trang chủ/thác nước 4.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 4.webp" alt="poto" st="4" style="display:none"> </a>
+            <a href="./resources/img/hình trang chủ/thác nước 5.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 5.webp" alt="poto" st="5" style="display:none"> </a>
 
         </div>
 
@@ -191,13 +170,8 @@
 
     <section class="video ">
         <!-- Bắt đầu video quảng cáo -->
-        <wix-video
-            data-video-info="{&quot;fittingType&quot;:&quot;fill&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;hasBgScrollEffect&quot;:true,&quot;staticVideoUrl&quot;:&quot;https://video.wixstatic.com/&quot;,&quot;videoId&quot;:&quot;beda79_a5a530d7297146d8a81a8b666796bf64&quot;,&quot;playbackRate&quot;:1,&quot;playerType&quot;:&quot;html5&quot;,&quot;isVideoDataExists&quot;:&quot;1&quot;,&quot;videoWidth&quot;:1920,&quot;videoHeight&quot;:1080,&quot;qualities&quot;:[{&quot;quality&quot;:&quot;480p&quot;,&quot;size&quot;:409920,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/480p/mp4/file.mp4&quot;},{&quot;quality&quot;:&quot;720p&quot;,&quot;size&quot;:921600,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/720p/mp4/file.mp4&quot;},{&quot;quality&quot;:&quot;1080p&quot;,&quot;size&quot;:2073600,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/1080p/mp4/file.mp4&quot;}],&quot;videoFormat&quot;:&quot;mp4&quot;,&quot;autoPlay&quot;:true,&quot;isEditorMode&quot;:false,&quot;isViewerMode&quot;:true,&quot;containerId&quot;:&quot;comp-k7bm6onr&quot;}"
-            id="comp-k7bm6onrbalatamediavideo" class="bgVideo"><video role="presentation" preload="auto" playsinline=""
-                crossorigin="anonymous" loop="" muted="" id="comp-k7bm6onrbalatamediavideovideo" class="bgVideovideo"
-                width="100%" height="100%" autoplay=""
-                src="https://video.wixstatic.com/video/beda79_a5a530d7297146d8a81a8b666796bf64/1080p/mp4/file.mp4"></video>
-            
+        <wix-video data-video-info="{&quot;fittingType&quot;:&quot;fill&quot;,&quot;alignType&quot;:&quot;center&quot;,&quot;hasBgScrollEffect&quot;:true,&quot;staticVideoUrl&quot;:&quot;https://video.wixstatic.com/&quot;,&quot;videoId&quot;:&quot;beda79_a5a530d7297146d8a81a8b666796bf64&quot;,&quot;playbackRate&quot;:1,&quot;playerType&quot;:&quot;html5&quot;,&quot;isVideoDataExists&quot;:&quot;1&quot;,&quot;videoWidth&quot;:1920,&quot;videoHeight&quot;:1080,&quot;qualities&quot;:[{&quot;quality&quot;:&quot;480p&quot;,&quot;size&quot;:409920,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/480p/mp4/file.mp4&quot;},{&quot;quality&quot;:&quot;720p&quot;,&quot;size&quot;:921600,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/720p/mp4/file.mp4&quot;},{&quot;quality&quot;:&quot;1080p&quot;,&quot;size&quot;:2073600,&quot;url&quot;:&quot;video/beda79_a5a530d7297146d8a81a8b666796bf64/1080p/mp4/file.mp4&quot;}],&quot;videoFormat&quot;:&quot;mp4&quot;,&quot;autoPlay&quot;:true,&quot;isEditorMode&quot;:false,&quot;isViewerMode&quot;:true,&quot;containerId&quot;:&quot;comp-k7bm6onr&quot;}" id="comp-k7bm6onrbalatamediavideo" class="bgVideo"><video role="presentation" preload="auto" playsinline="" crossorigin="anonymous" loop="" muted="" id="comp-k7bm6onrbalatamediavideovideo" class="bgVideovideo" width="100%" height="100%" autoplay="" src="https://video.wixstatic.com/video/beda79_a5a530d7297146d8a81a8b666796bf64/1080p/mp4/file.mp4"></video>
+
         </wix-video>
         </div>
         <!-- Kết thúc video quảng cáo -->
@@ -223,10 +197,7 @@
             </ul>
         </div>
         <div>
-            <iframe class="map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.7651222302347!2d106.7229326213425!3d10.770640795970566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3a1f5c247c407f3e!2zS2h1IMSRw7QgdGjhu4sgU2FsYQ!5e0!3m2!1svi!2s!4v1588692530529!5m2!1svi!2s"
-                width="500px" height="350px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                tabindex="0"></iframe>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.7651222302347!2d106.7229326213425!3d10.770640795970566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3a1f5c247c407f3e!2zS2h1IMSRw7QgdGjhu4sgU2FsYQ!5e0!3m2!1svi!2s!4v1588692530529!5m2!1svi!2s" width="500px" height="350px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
         <!-- Kết thúc phần kết nối người dùng -->
     </section>
@@ -238,7 +209,7 @@
         </p>
         <!-- end footer -->
     </footer>
-    
+
     <!-- khác -->
     <!-- Bắt đầu hộp thoại tin nhắn  -->
     <div class="messenger row">
