@@ -38,9 +38,9 @@
                         $type = DataProvider::ExecuteQuery( "SELECT * FROM `type` WHERE `category` = {$loai['id']}");
                         while($type1 = mysqli_fetch_array($type)){
                             $chuoi = <<< EOD
-                    <li><a class="a" href="#">  {$loai['name']}</a>
+                    <li><a class="a" href="/DoAnWeb2020/public/pages/show-row.php?id={$loai['id']}">  {$loai['name']}</a>
                         <ul class="submenu">
-                            <li><a href=""> {$type1['name']}</a></li>
+                            <li><a href="/DoAnWeb2020/public/pages/show-row.php?id={$type1['id']}"> {$type1['name']}</a></li>
                             
                         </ul>
                     </li>
