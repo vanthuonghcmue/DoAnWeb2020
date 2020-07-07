@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label>Số Điện Thoại</label>
-                            <input type="number" class="form-control" placeholder="" name="phone" value="<?php echo $row['phone'] ?>">
+                            <input type="number" class="form-control" placeholder="0345197655" name="phone" value="<?php echo $row['phone'] ?>">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 account:{ required: true ,minlength:3 },
                                 email:{required: true,email:true},
                                 password:{required:true,minlength:8},
-                                Hinh:{required:true,extension:"jpg|png|bmp"}
+                            
                             },
                             messages: {
                                 TenUS: { required:"Vui lòng nhập tên User" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 account:{ required:"Vui lòng nhập tên đăng nhập" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
                                 email:{required: "Vui lòng nhập email",email:"Vui lòng điền đúng định dạng email"},
                                 password:{required: "Vui lòng nhập password",minlength:"Vui lòng nhập lớn hơn 8 kí tự"},
-                                Hinh:{required:"Vui lòng chọn ảnh",extension:"Chỉ chấp nhận file jpg|png|bmp"}
+                              
 
                             }
             
@@ -99,13 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 <?php
-if (isset($_REQUEST['TenAD'])) {
-    $sql = "UPDATE `users` SET `name` = '{$_REQUEST['TenAD']}', `email` = '{$_REQUEST['email']}', `address` = '{$_REQUEST['address']}', `phone` = '{$_REQUEST['phone']}', `Account` = '{$_REQUEST['account']}',
-             `password` = '{$_REQUEST['password']}', `created_at` = NULL, `updata_up` = NULL WHERE `users`.`id` = $id";
+
+
+
+if (isset($_REQUEST['TenUS'])) {
+    $sql = "UPDATE `users` SET `name` = '{$_REQUEST['TenUS']}', `address` = '{$_REQUEST['address']}', `email` = '{$_REQUEST['email']}', `Account` = '{$_REQUEST['account']}', `password` = '{$_REQUEST['password']}', `phone` = '{$_REQUEST['phone']}' WHERE `users`.`id` = $id";
     echo $sql;
     DataProvider::ExecuteQuery($sql);
     if (@$_FILES['Hinh']['error'] == 0) {
-        move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_users/" . @$_FILES['Hinh']["name"]);
+        move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_users/".@$_FILES['Hinh']["name"]);
         $sql = "UPDATE `users` SET  `avatar` = '{$_FILES['Hinh']["name"]}' WHERE `users`.`id` = $id";
         echo $sql;
         DataProvider::ExecuteQuery($sql);

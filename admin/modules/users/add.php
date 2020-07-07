@@ -89,7 +89,7 @@ if(@$_FILES['Hinh']['error'] == 0){
     if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_users/".@$_FILES['Hinh']["name"]))
         {
             $sql = "INSERT INTO `users` (`id`, `name`, `email`,`address`,  `phone`,`Account`, `password`, `avatar`, `status`,`token`,`created_at`, `updata_up`) 
-            VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['email']}','{$_REQUEST['address']}', '{$_REQUEST['phone']}', '{$_REQUEST['account']}','{$_REQUEST['password']}','{$_FILES['Hinh']['name']}',  '1','1', current_timestamp() , current_timestamp())";
+            VALUES (NULL, '{$_REQUEST['TenUS']}', '{$_REQUEST['email']}','{$_REQUEST['address']}', '{$_REQUEST['phone']}', '{$_REQUEST['account']}','{$_REQUEST['password']}','{$_FILES['Hinh']['name']}',  '1','1', current_timestamp() , current_timestamp())";
             echo $sql;
             DataProvider::ExecuteQuery($sql);
 		}
