@@ -74,7 +74,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                         </div>
                     <?php else : ?>
 
-                        <a class="far fa-user " href="./pages/login.php" id="icoi"></a>
+                        <a class="far fa-user " href="pages/login.php" id="icoi"></a>
 
                     <?php endif ?>
 

@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . "/../autoload/autoload.php";?>
+<?php 
+ session_start();
+require_once __DIR__ . "/../autoload/autoload.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +24,56 @@
     <link rel="stylesheet" href="../resources/css/queries.css">
     <link rel="stylesheet" href="../vendors/css/bootstrap-grid.css">
     <script src="../vendors/js/jquery-3.5.0.js"></script>
-
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
 
 
 </head>
@@ -30,11 +82,11 @@
     <!-- Begin head  -->
     <div class="sticky">
         <nav>
-            <a href="#Home"><img class="logo"
+            <a href="../index.php"><img class="logo"
                     src="../resources/img/logoCong_ty_Co_Phan_Kien_Truc_Xay_Dung_song_phat.jpg.png" alt="logo"></a>
             <div>
-                <ul class="main-nav">
-                <?php
+            <ul class="main-nav">
+                    <?php
                     $sql = "SELECT * FROM `category`";
                     $category = DataProvider::ExecuteQuery($sql);
                     while ($loai = mysqli_fetch_array($category)) {
@@ -60,7 +112,26 @@
                     echo   "</li>";
                     ?>
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
-                    <a class="far fa-user " href="../pages/login2.html" id="icoi"></a>
+                    <?php if (isset($_SESSION['name'])) :   ?>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <?php echo $_SESSION['name'] ?>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Đơn hàng</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <a class="dropdown-item" href="#">Hồ sơ</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/DoAnWeb2020/public/pages/thoat.php">Đăng xuất</a>
+                            </div>
+                        </div>
+                    <?php else : ?>
+
+                        <a class="far fa-user " href="login.php" id="icoi"></a>
+
+                    <?php endif ?>
+
                 </ul>
             </div>
             <div class="mobile-nav-icon"><i class="fa fa-bars "></i></div>
