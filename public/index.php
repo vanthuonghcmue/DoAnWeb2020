@@ -1,4 +1,6 @@
-<?php require_once __DIR__ . "/../autoload/autoload.php"; ?>
+<?php session_start();
+
+require_once __DIR__ . "/../autoload/autoload.php"; ?>
 <!DOCTYPE html>
 <html>
 
@@ -55,9 +57,27 @@
                     }
                     echo   "</li>";
                     ?>
-
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
-                    <a class="far fa-user " href="./pages/login2.html" id="icoi"></a>
+                    <?php if (isset($_SESSION['name'])) :   ?>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <?php echo $_SESSION['name'] ?>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Đơn hàng</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <a class="dropdown-item" href="#">Hồ sơ</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Đăng xuất</a>
+                            </div>
+                        </div>
+                    <?php else : ?>
+
+                        <a class="far fa-user " href="./pages/login.php" id="icoi"></a>
+
+                    <?php endif ?>
+
                 </ul>
             </div>
             <div class="mobile-nav-icon"><i class="fa fa-bars "></i></div>
@@ -216,7 +236,9 @@
         <a href="#" id="messenger" class="fas fa-comment-dots"></a>
     </div>
     <!-- kết thúc hộp thoại tin nhắn -->
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./vendors/js/bootstrap.js"></script>
     <script src="./vendors/js/jquery.waypoints.min.js"></script>
     <script src="./resources/js/scripts.js"></script>

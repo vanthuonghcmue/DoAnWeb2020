@@ -1,3 +1,8 @@
+<?php require_once __DIR__ . "/../../autoload/autoload.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    header('location: login.php');
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -37,35 +42,59 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form>
+                <form action="" method="post" enctype="multipart/form-data" id="USadd">
                     <div class="login-form-head">
                         <h4>Sign up</h4>
-                        <p>Hello there, Sign up and Join with Us</p>
+                        <p>Xin chào, mời bạn đăng kí tài khoản</p>
                     </div>
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputName1">Full Name</label>
-                            <input type="text" id="exampleInputName1">
+                            <input type="text" id="exampleInputName1" name="name">
                             <i class="ti-user"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1">
+                            <input type="email" id="exampleInputEmail1" name="email">
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
+                                <label for="exampleInputEmail1">Phone</label>
+                                <input type="number" id="exampleInputPhone" name="phone">
+                                <i class="ti-mobile"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                       
+                        <div class="form-gp">
+                                <label for="exampleInputEmail1">address</label>
+                                <input type="text" id="exampleInputPhone" name="address">
+                                <i class="ti-home"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                        <div class="form-gp">
+                                <label for="exampleInputEmail1">Account</label>
+                                <input type="text" id="exampleInputPhone" name="account">
+                                <i class="ti-id-badge"></i>
+                                <div class="text-danger"></div>
+                            </div>
+                        <div class="form-gp">
+                            
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1">
+                            <input type="password" id="exampleInputPassword1" name="password1">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword2">Confirm Password</label>
-                            <input type="password" id="exampleInputPassword2">
+                            <input type="password" id="exampleInputPassword2" name="password2">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh">
                         </div>
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
@@ -79,13 +108,24 @@
                             </div>
                         </div>
                         <div class="form-footer text-center mt-5">
-                            <p class="text-muted">Don't have an account? <a href="./login2.html">Sign in</a></p>
+                            <p class="text-muted"> Have an account? <a href="./login.php">Sign in</a></p>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <?php
+if(@$_FILES['Hinh']['error'] == 0){
+    if(move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "../../admin/modules/users/img_users/".@$_FILES['Hinh']["name"]))
+        {
+            $sql = "INSERT INTO `users` (`id`, `name`, `email`,`address`,  `phone`,`Account`, `password`, `avatar`, `status`,`token`,`created_at`, `updata_up`) 
+            VALUES (NULL, '{$_REQUEST['name']}', '{$_REQUEST['email']}','{$_REQUEST['address']}', '{$_REQUEST['phone']}', '{$_REQUEST['account']}','{$_REQUEST['password1']}','{$_FILES['Hinh']['name']}',  '1','1', current_timestamp() , current_timestamp())";
+            echo $sql;
+            DataProvider::ExecuteQuery($sql);
+		}
+}
+?>
     <!-- login area end -->
 
     <!-- jquery latest version -->

@@ -1,7 +1,28 @@
+
+<?php session_start ();
+ require_once __DIR__ . "/../../autoload/autoload.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+    //   header('location: http://localhost:8080/DoAnWeb2020/public');
+    $sql=  "SELECT * FROM `users` WHERE `Account` LIKE  '{$_POST['account']}' AND `password` LIKE '{$_POST['password']}' "; 
+    $result = DataProvider::ExecuteQuery($sql);
+    $row = mysqli_fetch_array($result);
+   
+    if($row != NULL){
+        $_SESSION['name']= $row['name'];
+        $_SESSION['id']= $row['id'];
+        echo "<script> alert(' Đăng nhập thành công '); location.href=' ../index.php'   </script>";
+    }
+    else {
+        $_SESSION['error']= "Đăng Nhập Thất Bại";
+    }
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Login - srtdash</title>
@@ -37,21 +58,28 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form>
+                <form action="" method="post" enctype="multipart/form-data" id="USadd">
                     <div class="login-form-head">
                         <h4>Sign In</h4>
                         <p>Hello there, Sign in and start managing your Admin Template</p>
                     </div>
+                  
+                    <?php if (isset($_SESSION['error'])):  ?>
+                    <div class="alert alert-danger" role="alert">
+                            error! <?php echo $_SESSION['error']; unset ($_SESSION['error']) ?>
+                    </div>  
+                    <?php endif ?>    
+
                     <div class="login-form-body">
                         <div class="form-gp">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1">
+                            <label for="exampleInputEmail1">Account</label>
+                            <input type="text" id="exampleInputEmail1" name="account">
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1">
+                            <input type="password" id="exampleInputPassword1" name="password">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
@@ -70,7 +98,7 @@
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
                         <div class="form-footer text-center mt-5">
-                            <p class="text-muted">Don't have an account? <a href="./register2.html">Sign up</a></p>
+                            <p class="text-muted">Don't have an account? <a href="./register.php">Sign up</a></p>
                         </div>
                     </div>
                 </form>
@@ -78,7 +106,7 @@
         </div>
     </div>
     <!-- login area end -->
-
+    
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
