@@ -498,3 +498,47 @@ bottom:10px;
 text-align: center;
 font-family: 'Bevan', cursive;
 }
+/*.......................XEM HÀNG.......................................*/
+#addcart{
+  margin-top: 10px;
+  padding-right: 50px;
+}
+#all{
+  padding-left: 100px;
+
+}
+#face{
+  color:blue;
+
+}
+#ins{
+  color:#FF0080;
+}
+#twi{
+  color:#2E64FE;
+}
+#gg{
+  color:#FF0000;
+}
+#h1{
+margin: 0 0 10px;
+font-weight:700;
+color: #08088A;
+}
+#cart{
+  background-color:#08088A;
+}
+.single-pro-cn h3 b{
+	font-size:20px;
+	font-weight:500px;
+	text-transform:uppercase;
+}
+#thongtin{
+  margin-right:100px;
+}
+#giatien{
+  color:#08088A;
+}
+.single-pro-price{
+	margin:10px 0px;
+}
