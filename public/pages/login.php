@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     if($row != NULL){
         $_SESSION['name']= $row['name'];
         $_SESSION['id']= $row['id'];
-        echo "<script> alert(' Đăng nhập thành công '); location.href=' ../index.php'   </script>";
+        echo "<script>  location.href=' ../index.php'   </script>";
     }
     else {
         $_SESSION['error']= "Đăng Nhập Thất Bại";

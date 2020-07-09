@@ -56,7 +56,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                         echo " </ul>";
                     }
                     echo   "</li>";
-                    ?>
+                    ?>s
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
                     <?php if (isset($_SESSION['name'])) :   ?>
 
@@ -69,7 +69,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                                 <a class="dropdown-item" href="#"></a>
                                 <a class="dropdown-item" href="#">Hồ sơ</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Đăng xuất</a>
+                                <a class="dropdown-item" href="/DoAnWeb2020/public/pages/thoat.php">Đăng xuất</a>
                             </div>
                         </div>
                     <?php else : ?>
