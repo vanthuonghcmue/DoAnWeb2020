@@ -56,7 +56,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                         echo " </ul>";
                     }
                     echo   "</li>";
-                    ?>s
+                    ?>
                     <a class="fas fa-shopping-cart " href="#" id="icoi"></a>
                     <?php if (isset($_SESSION['name'])) :   ?>
 
