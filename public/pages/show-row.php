@@ -60,6 +60,9 @@ require_once __DIR__ . "/../../autoload/autoload.php";
            
          
             while ($row = mysqli_fetch_array($result)) {
+              $giagoc=number_format($row['gia'],0);
+                if ($row['sale'] <= 0){
+                                 
                 $chuoi = <<< EOD
                                 <div class="khung_san_pham col-4">
                                 <div class="Hinh_anhsp">
@@ -69,12 +72,35 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                                     <p> {$row['name']}</p>
                                 </div>
                                 <div class="gia_sp">
-                                    <p> {$row['gia']} </p>
+                                <p>   $giagoc VNĐ </p>
                                 </div>
                                 </div>
                             EOD;
                 echo $chuoi;
             }
+            else {
+                
+                $gia= number_format($row['gia']-$row['gia']*$row['sale']/100,0);
+               
+                $chuoi = <<< EOD
+                                <div class="khung_san_pham col-4">
+                                <div class="Hinh_anhsp">
+                                    <a href=" xem-hang.php?id= {$row['id']}"><img src="/DoAnWeb2020/admin/modules/product/img_product/{$row['avatar']}"  alt="poto"></a>
+                                </div>
+                                <div class="ten_sp">
+                                    <p> {$row['name']}</p>
+                                </div>
+                                <div class="gia_sp">
+                                <strike>  $giagoc VNĐ </strike>
+                                <p>  $gia  VNĐ</p>
+                                </div>
+                                </div>
+                            EOD;
+                echo $chuoi;
+            }
+        
+            
+        }
         } catch (Exception $ex) {
             echo "Không thể mở CSDL";
         }

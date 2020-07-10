@@ -47,17 +47,17 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         </div>
                         <div class="color-quality-pro">
                             <div class="color-quality">
-                                <h4 id="quantity">Số lượng</h4>
+                                <!-- <h4 id="quantity">Số lượng</h4>
                                 <div class="quantity">
                                     <div class="pro-quantity-changer">
                                         <input type="text" value="1" />
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="clear"></div>
                             <div class="single-pro-button">
                                 <div class="pro-button">
-                                    <a href="#" id="cart">Thêm vào giỏ hàng</a>
+                                    <a href="addcart.php?id= <?php echo $row['id'] ?>" id="cart">Thêm vào giỏ hàng</a>
                                 </div>
                                 <div class="pro-viwer">
                                     <a href="#"><i class="fa fa-heart"></i></a>

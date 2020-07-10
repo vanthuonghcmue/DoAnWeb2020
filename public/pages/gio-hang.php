@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
+
+if( !isset ($_SESSION['cart']) ){
+    echo "<script> alert ('Chưa có gì trong giỏ hàng. Hãy tiếp tục mua sắm nhé'); 
+    location.href='../index.php'</script> ";
+}
 ?>
 <!-- Begin element -->
 <element class="container">
@@ -10,29 +15,34 @@ require_once __DIR__ . "/../../autoload/autoload.php";
         <table  class="table table-hover table-condensed">
             <thead>
                 <tr>
-                    <th style="width:50%">Tên sản phẩm</th>
-                    <th style="width:10%">Giá</th>
+                    <th style="width:40%">Tên sản phẩm</th>
+                    <th style="width:20%">Giá</th>
                     <th style="width:8%">Số lượng</th>
                     <th style="width:22%" class="text-center">Thành tiền</th>
-                    <th style="width:10%"> </th>
+                    <th style="width:10%">  </th>
                 </tr>
             </thead>
             <tbody>
+            <?php $tong=0; ?>
+            <?php foreach($_SESSION['cart'] as $key => $value): ?>
+               
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-2 hidden-xs"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/090.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
+                            <div class="col-sm-2 hidden-xs"><img src="/DoAnWeb2020/admin/modules/product/img_product/<?php echo $value['avatar']?>" alt="Sản phẩm 1" class="img-responsive" width="100">
                             </div>
                             <div class="col-sm-10">
-                                <h4 class="nomargin">Sản phẩm 1</h4>
-                                <p>Mô tả của sản phẩm 1</p>
+                                <h4 class="nomargin"><?php echo $value['name'] ?></h4>
+                               
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price">200.000 đ</td>
-                    <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
+                    <td data-th="Price"> <?php echo number_format( $value['gia']-$value['sale']*$value['gia']/100,0) ?> VNĐ</td>
+                    <td data-th="Quantity"><input class="form-control text-center" value="<?php echo $value['soluong'] ?>" type="number">
                     </td>
-                    <td data-th="Subtotal" class="text-center">200.000 đ</td>
+                    <?php $gia= ($value['gia']-$value['sale']*$value['gia']/100) ?>
+                    <td data-th="Subtotal" class="text-center"><?php echo number_format($gia*$value['soluong'],0)?> VNĐ</td>
+                    <?php $tong+=$gia*$value['soluong']?>
                     <td class="actions" data-th="">
                         <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
                         </button>
@@ -40,41 +50,20 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-2 hidden-xs"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/174.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
-                            </div>
-                            <div class="col-sm-10">
-                                <h4 class="nomargin">Sản phẩm 2</h4>
-                                <p>Mô tả của sản phẩm 2</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">300.000 đ</td>
-                    <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-                    </td>
-                    <td data-th="Subtotal" class="text-center">300.000 đ</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-                        </button>
-                    </td>
-                </tr>
+             
+                <?php endforeach ?>
+               
             </tbody>
             <tfoot>
-                <tr class="visible-xs">
-                    <td class="text-center"><strong>Tổng 200.000 đ</strong>
-                    </td>
-                </tr>
+                
                 <tr>
-                    <td><a href="http://hocwebgiare.com/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
+                    <td><a href="show-row.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
                     </td>
                     <td colspan="2" class="hidden-xs"> </td>
-                    <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
+                    <?php $_SESSION['tongtien'] =$tong ?>
+                    <td class="hidden-xs text-center"><strong>Tổng tiền <?php echo number_format($_SESSION['tongtien'],0)?> VNĐ</strong>
                     </td>
-                    <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
+                    <td><a href="thanh-toan.php" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
                     </td>
                 </tr>
             </tfoot>
