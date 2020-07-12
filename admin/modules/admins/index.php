@@ -1,6 +1,16 @@
 <?php session_start ()?>
 <?php require_once __DIR__ . "/../../autoload/autoload.php"; ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
+<?php 
+$sotin1trang = 4; 
+
+if( isset($_GET["trang"]) ){
+	$trang = $_GET["trang"];
+	settype($trang, "int");
+}else{
+	$trang = 1;	
+}
+?>
 <div class="product-status mg-tb-15">
    <div class="container-fluid">
       <div class="row">
@@ -27,7 +37,8 @@
                   </tr>
                   <?php
                   try {
-                     $sql = "SELECT id, name,address,email,password,phone,status, level,avatar, created_at, updata_up  FROM `admins`   ";
+                     $from = ($trang -1 ) * $sotin1trang;
+                     $sql = "SELECT id, name,address,email,password,phone,status, level,avatar, created_at, updata_up  FROM `admins` LIMIT $from, $sotin1trang  ";
                      $result = DataProvider::ExecuteQuery($sql);
             
                      $stt = 0;
@@ -58,17 +69,35 @@
                   }
                   ?>
                </table>
-               <div class="custom-pagination">
-                  <nav aria-label="Page navigation example">
-                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                     </ul>
-                  </nav>
-               </div>
+               <div id="phantrangadmins">
+             <?php
+             $x = "SELECT id FROM `admins`";
+             $kq = DataProvider::ExecuteQuery($x);
+             $tongsotin = mysqli_num_rows($kq);
+             $sotrang = ceil($tongsotin / $sotin1trang);
+
+               if ($trang > 1 && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang-1).'"> Prev</a> | ';
+               }
+               for ($i = 1; $i <= $sotrang; $i++){
+               if ($i == $trang){
+               echo '<span>'.$i.'</span> | ';
+               }
+               else{
+               echo '<a href="index.php?trang='.$i.'">'.$i.'</a> | ';
+               }
+               }
+               if ($trang < $sotrang && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang+1).'">Next</a>  ';
+               }
+          ?>
+</div>
+<style>
+   #phantrangadmins{
+      font-size:larger;
+
+   }
+   </style>
             </div>
          </div>
       </div>
