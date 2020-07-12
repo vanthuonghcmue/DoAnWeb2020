@@ -127,12 +127,12 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
         <div class="row colum">
             <div class="col md-6 about-picture">
 
-                <a href="./pages/show-row-Ngoại_thất.html"><img src="./resources/img/1.webp" alt="photo"></a>
+                <a href="pages/show-row.php?id=71"><img src="./resources/img/1.webp" alt="photo"></a>
                 <p class="picture-title"> Ngoại Thất</p>
             </div>
             <div class="col md-6 about-picture">
 
-                <a href="#"> <img style="height: 100%;" src="./resources/img/soddfa.webp" alt="photo"></a>
+                <a href="pages/show-row.php?id=9"> <img style="height: 100%;" src="./resources/img/soddfa.webp" alt="photo"></a>
                 <p href="#" class="picture-title"> Sofa</p>
             </div>
         </div>
@@ -140,17 +140,17 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
         <div class="row colum">
             <div class="col md about-picture">
 
-                <a href="#"> <img src="./resources/img/chaucay.webp" alt="photo"></a>
-                <p class="picture-title"> Chậu Cây</p>
+                <a href="pages/show-row.php?id=26"> <img src="./resources/img/chaucay.webp" alt="photo"></a>
+                <p class=" picture-title "> Chậu Cây</p>
             </div>
             <div class="col md-4 about-picture">
 
-                <a href="#"> <img src="./resources/img/banghe.webp" alt="photo"></a>
+                <a href="pages/show-row.php?id=`17"> <img src="./resources/img/banghe.webp" alt="photo"></a>
                 <p class="picture-title"> Bàn ghế</p>
             </div>
             <div class="col md-4 about-picture">
 
-                <a href="#"> <img src="./resources/img/decor.webp" alt="photo"></a>
+                <a href="pages/show-row.php?id=72"> <img src="./resources/img/decor.webp" alt="photo"></a>
                 <p class="picture-title"> Trang trí</p>
             </div>
         </div>

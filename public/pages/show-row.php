@@ -54,7 +54,13 @@ require_once __DIR__ . "/../../autoload/autoload.php";
             $sql = "SELECT * FROM `product`";
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $sql .= "WHERE category =" . $id;
+                if ($id >=70){
+                    $sql .= "WHERE category =" . $id;
+                }
+                else{
+                    $sql .= "WHERE type =" . $id;
+                }
+                
             }
             $result = DataProvider::ExecuteQuery($sql);
            
