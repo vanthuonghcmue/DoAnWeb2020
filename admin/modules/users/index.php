@@ -2,7 +2,7 @@
 <?php require_once __DIR__ . "/../../autoload/autoload.php"; ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
 <?php 
-$sotin1trang = 4; 
+$sotin1trang = 10; 
 
 if( isset($_GET["trang"]) ){
 	$trang = $_GET["trang"];
