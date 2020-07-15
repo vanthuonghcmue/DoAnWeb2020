@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2020 at 06:57 AM
+-- Generation Time: Jul 15, 2020 at 01:08 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -99,31 +99,6 @@ CREATE TABLE `orders` (
   `sale` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `transaction_id`, `product_id`, `soluong`, `gia`, `sale`, `created_at`) VALUES
-(11, 0, 37, 1, 100000, 10, '2020-07-10 13:01:50'),
-(12, 0, 38, 1, 2000000, 10, '2020-07-10 13:01:50'),
-(13, 0, 38, 1, 2000000, 10, '2020-07-10 13:05:50'),
-(14, 32, 38, 1, 2000000, 10, '2020-07-10 13:08:47'),
-(15, 33, 38, 1, 2000000, 10, '2020-07-10 13:11:51'),
-(16, 34, 38, 1, 2000000, 10, '2020-07-10 13:12:55'),
-(17, 35, 38, 1, 2000000, 10, '2020-07-10 13:14:43'),
-(18, 36, 38, 1, 2000000, 10, '2020-07-10 13:17:17'),
-(19, 37, 38, 1, 2000000, 10, '2020-07-10 13:22:30'),
-(20, 38, 38, 1, 2000000, 10, '2020-07-10 14:33:01'),
-(21, 39, 37, 1, 100000, 10, '2020-07-10 14:47:07'),
-(22, 39, 38, 1, 2000000, 10, '2020-07-10 14:47:07'),
-(23, 40, 76, 1, 46000000, 0, '2020-07-11 02:19:50'),
-(24, 40, 78, 1, 25000000, 0, '2020-07-11 02:19:50'),
-(25, 40, 30, 1, 10100000, 0, '2020-07-11 02:19:50'),
-(26, 41, 27, 1, 17800000, 50, '2020-07-11 02:27:46'),
-(27, 42, 27, 1, 17800000, 50, '2020-07-11 02:34:08'),
-(28, 43, 255, 1, 8900000, 25, '2020-07-11 06:14:39'),
-(29, 43, 32, 1, 26200000, 20, '2020-07-11 06:14:39');
 
 -- --------------------------------------------------------
 
@@ -397,7 +372,8 @@ INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`,
 (278, 'Khung Hình Bằng Gỗ', NULL, 100, 500000, 20, 'e.jpg', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:05:36', '2020-07-10 06:05:36'),
 (279, 'Khung Hình Bằng Gỗ', NULL, 50, 640000, 0, 'cb2e09_188674a305944cca9cbb4536a2dfbae4_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:17:40', '2020-07-10 06:17:40'),
 (280, 'Khung Hình Bằng Gỗ', NULL, 50, 740000, 20, 'cb2e09_b77327f3223a46388b5fdf292e568b40_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:04', '2020-07-10 06:18:04'),
-(281, 'Giá Kẹp Danh Thiếp', NULL, 50, 340000, 0, 'cb2e09_0681329762004c768f32ae2a9b4cc4e5_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:39', '2020-07-10 06:18:39');
+(281, 'Giá Kẹp Danh Thiếp', NULL, 50, 340000, 0, 'cb2e09_0681329762004c768f32ae2a9b4cc4e5_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:39', '2020-07-10 06:18:39'),
+(282, 'HẢI ĐẸP TRAI', NULL, 2, 2147483647, 99, '11111111.jpg', '74', '13', '300k/đêm ', 0, 0, 0, '2020-07-14 14:43:41', '2020-07-14 15:13:49');
 
 -- --------------------------------------------------------
 
@@ -414,26 +390,6 @@ CREATE TABLE `transaction` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `created_up` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `transaction`
---
-
-INSERT INTO `transaction` (`id`, `amount`, `user_id`, `status`, `note`, `created_at`, `created_up`) VALUES
-(30, 1890000, 11, 0, '1', '2020-07-10 13:01:50', '2020-07-10 13:01:50'),
-(31, 1800000, 11, 0, '2', '2020-07-10 13:05:50', '2020-07-10 13:05:50'),
-(32, 1800000, 11, 0, '4', '2020-07-10 13:08:47', '2020-07-10 13:08:47'),
-(33, 1800000, 11, 0, '445', '2020-07-10 13:11:51', '2020-07-10 13:11:51'),
-(34, 1800000, 11, 0, '66', '2020-07-10 13:12:55', '2020-07-10 13:12:55'),
-(35, 1800000, 11, 0, '55', '2020-07-10 13:14:43', '2020-07-10 13:14:43'),
-(36, 1800000, 11, 0, '77', '2020-07-10 13:17:17', '2020-07-10 13:17:17'),
-(37, 1800000, 11, 0, 'ưew', '2020-07-10 13:22:30', '2020-07-10 13:22:30'),
-(38, 1800000, 11, 0, 'dsada', '2020-07-10 14:33:01', '2020-07-10 14:33:01'),
-(39, 1890000, 11, 0, 'sdsad', '2020-07-10 14:47:07', '2020-07-10 14:47:07'),
-(40, 81100000, 13, 0, 'giao hàng gấp', '2020-07-11 02:19:50', '2020-07-11 02:19:50'),
-(41, 8900000, 13, 0, 'haha', '2020-07-11 02:27:46', '2020-07-11 02:27:46'),
-(42, 8900000, 13, 0, 'sdsad', '2020-07-11 02:34:08', '2020-07-11 02:34:08'),
-(43, 27635000, 13, 0, 'mua lan 2', '2020-07-11 06:14:39', '2020-07-11 06:14:39');
 
 -- --------------------------------------------------------
 
@@ -515,7 +471,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `address`, `phone`, `Account`, `pass
 (10, 'nguyenkhoi', 'nguyenkhoi159@gmail.com', '235 Nơ Trang Long', '0767548612', 'MinhKhoi147', '789456123', '4.jpg', 1, '1', '2020-07-07 09:51:37', '2020-07-11 02:10:32'),
 (11, 'nguyenminhkhan', 'nguyenminhkhang136@gmail.com', '147 Nguyễn Tri Phương ', '0874632148', 'KhangVo083', 'Khang15937', '3.jpg', 1, '1', '2020-07-07 09:55:35', '2020-07-11 02:10:40'),
 (12, 'dungtran', 'dungtran1506@gmail.com', '264 Hoàng Văn Thụ', '0796342586', 'DungTran14', 'dungtr@n1478951', '1.jpg', 1, '1', '2020-07-07 09:57:20', '2020-07-11 02:10:55'),
-(13, 'ĐẶng Vân Thương', 'vanthuonghcmue@gmail.com', '351a Lạc Long Quân', '0345197651', 'Thuongpro', '123456789', '32896091_2051968085124220_505489376969490432_o.jpg', 1, '1', '2020-07-11 02:13:29', '2020-07-11 02:13:29');
+(13, 'ĐẶng Vân Thương11111', 'vanthuonghcmue@gmail.com', '351a Lạc Long Quân111', '0345197651111', 'Thuongpro11', '12345678911', 'Untitled.png', 1, '1', '2020-07-11 02:13:29', '2020-07-15 10:06:09');
 
 --
 -- Indexes for dumped tables
@@ -583,19 +539,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `type`

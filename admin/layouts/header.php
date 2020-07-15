@@ -91,7 +91,7 @@
                                 <li><a title="Dashboard v.2" href="/DoAnWeb2020/admin/modules/category"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Danh Mục</span></a></li>
                                 <li><a title="Dashboard v.4" href="/DoAnWeb2020/admin/modules/type"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản lý Loại Sản Phẩm</span></a></li>
                                 <li><a title="Dashboard v.3" href="/DoAnWeb2020/admin/modules/product"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Sản Phẩm</span></a></li>
-                                <li><a title="Dashboard v.1" href="#"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Đơn Hàng</span></a></li>
+                                <li><a title="Dashboard v.1" href="/DoAnWeb2020/admin/modules/transaction"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Đơn Hàng</span></a></li>
                                 <li><a title="Product List" href="/DoAnWeb2020/admin/modules/users"><i class="fa fa-female sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Người Dùng</span></a></li>
                                 
                             </ul>
@@ -233,14 +233,9 @@
 															<i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
 													</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Đăng Ký</a>
+                                                        <li><a href="/DoAnWeb2020/public/index.php"><span class="fa fa-home author-log-ic"></span>Quay về trang mua sắm</a>
                                                         </li>
-                                                        <li><a href="#"><span class="fa fa-user author-log-ic"></span>Trang Thông Tin</a>
-                                                        </li>
-                                                        <li><a href="lock.html"><span class="fa fa-diamond author-log-ic"></span> Khóa</a>
-                                                        </li>
-                                                        <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Cài Đặt</a>
-                                                        </li>
+                                                        
                                                         <li><a href="/DoAnWeb2020/admin/modules/admins/thoat.php"><span class="fa fa-lock author-log-ic"></span>Đăng Xuất</a>
                                                         </li>
                                                     </ul>
@@ -277,7 +272,7 @@
                                                 <li><a href="/DoAnWeb2020/admin/modules/category">Quản Lý Danh Mục</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/type">Quản Lý Loại Sản Phẩm</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/product">Quản Lý Sản Phẩm</a></li>
-                                                <li><a href="#">Quản Lý Đơn Hàng</a></li>
+                                                <li><a href="/DoAnWeb2020/admin/modules/transaction">Quản Lý Đơn Hàng</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/users">Quản Lý Người Dùng</a></li>
                                                 
                                             </ul>
