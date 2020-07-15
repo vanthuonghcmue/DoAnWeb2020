@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://kit.fontawesome.com/b2e2d80b02.js" crossorigin="anonymous"></script>
     <!-- jquery
 		============================================ -->
     <!-- bootstrap JS

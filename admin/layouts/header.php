@@ -1,3 +1,4 @@
+<?php ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -221,12 +222,15 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                              
+
                                                 <li class="nav-item">
+                                                <?php if (isset($_SESSION['namead'])) :   ?>
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
-															<span class="admin-name">Đặng Vân Thương </span>
+															<span class="admin-name"><?php echo $_SESSION['namead'] ?> </span>
 															<i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
-														</a>
+													</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Đăng Ký</a>
                                                         </li>
@@ -236,10 +240,18 @@
                                                         </li>
                                                         <li><a href="#"><span class="fa fa-cog author-log-ic"></span>Cài Đặt</a>
                                                         </li>
-                                                        <li><a href="login.html"><span class="fa fa-lock author-log-ic"></span>Đăng Xuất</a>
+                                                        <li><a href="/DoAnWeb2020/admin/modules/admins/thoat.php"><span class="fa fa-lock author-log-ic"></span>Đăng Xuất</a>
                                                         </li>
                                                     </ul>
                                                 </li>
+                                                <?php else : ?> 
+                                                    <a href="/DoAnWeb2020/admin/modules/admins/login.php" role="button" aria-expanded="false" class="nav-link ">
+															<i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
+															<span class="admin-name"> </span>
+															<i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+														</a>
+                                                    <?php endif ?>
+
                                                 
                                             </ul>
                                         </div>

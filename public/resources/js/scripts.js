@@ -11,7 +11,7 @@ $(document).ready(
             }, {
             offset: "500 px"
         }
-        )
+        );
         // scroll
         $('a').click(function (event) {
             $('html, body').animate({
@@ -19,7 +19,7 @@ $(document).ready(
             }, 900);
             event.preventDefault();
         }
-        )
+        );
 
         // mobile-nav
         $(".mobile-nav-icon").click(function () {
@@ -33,7 +33,7 @@ $(document).ready(
                 $(".mobile-nav-icon i").removeClass("fa-times");
             }
         }
-        )
+        );
 
         // Hiệu ứng chuyển động ảnh
         var stt = 0;
@@ -56,8 +56,6 @@ $(document).ready(
         setInterval(function () {
             $(".gioithieuimg").click();
         }, 3000);
-
-
 
         var st = 0;
         starImg = $("img.advertisement-section-img:first").attr("st");
@@ -100,24 +98,30 @@ $(document).ready(
             }
         });
 
-        $('.popup-gallery2').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            tLoading: 'Loading image #%curr%...',
-            mainClass: 'mfp-img-mobile',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-            },
-            image: {
-                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-                titleSrc: function (item) {
-                    return item.el.attr('title') + '<small>collection 2020</small>';
-                }
-            }
-        });
+        // update gio hang
 
+        $updatecart = $(".updatecart");
+        $updatecart.click(function(e){
+            e.preventDefault();
+            $qty=$(this).parents("tr").find(".qty").val();
+          
+            $key= $(this).attr("data-key");
+           
+            jQuery.ajax({
+                url: 'cap-nhat-gio-hang.php',
+                type:'GET',
+                data: {'qty': $qty, 'key': $key},
+                
+                success: function(data){
+                    if (data==1){
+                        
+                        location.href='gio-hang.php';
+
+                    }
+                }
+
+            });
+        })
     }
 );
 

@@ -98,7 +98,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
                         <div class="form-footer text-center mt-5">
-                            <p class="text-muted">Don't have an account? <a href="./register.php">Sign up</a></p>
+                            <p class="text-muted">Bạn chưa có tài khoảng? Đăng kí tại đây<a href="./register.php">Sign up</a></p>
+                            <p class="text-muted"> <a href="/DoAnWeb2020/admin/modules/admins/login.php">Đăng nhập với tư cách admin?</a></p>
                         </div>
                     </div>
                 </form>

@@ -11,7 +11,7 @@ if (!isset ($_SESSION['name'])){
     try {
         $sql = "SELECT * FROM product";
         if (isset($_GET['id'])) {
-        $id = $_GET['id'];
+        $id = intval($_GET['id']);
         $sql .= " WHERE id = " . $id;
         }
         $result = DataProvider::ExecuteQuery($sql);

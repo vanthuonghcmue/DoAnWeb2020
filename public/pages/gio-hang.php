@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
 
@@ -7,6 +10,7 @@ if( !isset ($_SESSION['cart']) ){
     location.href='../index.php'</script> ";
 }
 ?>
+
 <!-- Begin element -->
 <element class="container">
 
@@ -22,10 +26,11 @@ if( !isset ($_SESSION['cart']) ){
                     <th style="width:10%">  </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
             <?php $tong=0; ?>
             <?php foreach($_SESSION['cart'] as $key => $value): ?>
-               
+               <?php var_dump($key); 
+               var_dump($key)?>
                 <tr>
                     <td data-th="Product">
                         <div class="row">
@@ -38,15 +43,15 @@ if( !isset ($_SESSION['cart']) ){
                         </div>
                     </td>
                     <td data-th="Price"> <?php echo number_format( $value['gia']-$value['sale']*$value['gia']/100,0) ?> VNĐ</td>
-                    <td data-th="Quantity"><input class="form-control text-center" value="<?php echo $value['soluong'] ?>" type="number">
+                    <td data-th="Quantity"><input class="form-control text-center qty" value="<?php echo $value['soluong'] ?>" type="number" name="qty" min="0" id="qty">
                     </td>
                     <?php $gia= ($value['gia']-$value['sale']*$value['gia']/100) ?>
                     <td data-th="Subtotal" class="text-center"><?php echo number_format($gia*$value['soluong'],0)?> VNĐ</td>
                     <?php $tong+=$gia*$value['soluong']?>
                     <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+                        <button class="btn btn-info btn-sm updatecart" data-key=<?php echo $key ?>><i class="fa fa-edit"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+                        <a href="remove.php?key=<?php echo $key?>" ><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
                         </button>
                     </td>
                 </tr>

@@ -76,7 +76,7 @@ require_once __DIR__ . "/../autoload/autoload.php";
     <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
     <!-- Boottrap gio hang -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+   
 </head>
 
 <body>
