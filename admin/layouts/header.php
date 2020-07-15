@@ -91,6 +91,7 @@
                                 <li><a title="Dashboard v.2" href="/DoAnWeb2020/admin/modules/category"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Danh Mục</span></a></li>
                                 <li><a title="Dashboard v.4" href="/DoAnWeb2020/admin/modules/type"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản lý Loại Sản Phẩm</span></a></li>
                                 <li><a title="Dashboard v.3" href="/DoAnWeb2020/admin/modules/product"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Sản Phẩm</span></a></li>
+                                <li><a title="Dashboard v.1" href="#"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Đơn Hàng</span></a></li>
                                 <li><a title="Product List" href="/DoAnWeb2020/admin/modules/users"><i class="fa fa-female sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Quản Lý Người Dùng</span></a></li>
                                 
                             </ul>
@@ -276,6 +277,7 @@
                                                 <li><a href="/DoAnWeb2020/admin/modules/category">Quản Lý Danh Mục</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/type">Quản Lý Loại Sản Phẩm</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/product">Quản Lý Sản Phẩm</a></li>
+                                                <li><a href="#">Quản Lý Đơn Hàng</a></li>
                                                 <li><a href="/DoAnWeb2020/admin/modules/users">Quản Lý Người Dùng</a></li>
                                                 
                                             </ul>
