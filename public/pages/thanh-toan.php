@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-status-wrap">
-                    <h4>Thanh Toán Đơn Hàng</h4>
+                    <h2 class="text-center">Thanh Toán Đơn Hàng </h2>
                     <!-- Begin form add product -->
                     <form action="" method="post" enctype="multipart/form-data" id="USedit">
                         <?php

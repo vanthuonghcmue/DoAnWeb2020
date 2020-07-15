@@ -29,9 +29,8 @@ if( !isset ($_SESSION['cart']) ){
             <tbody >
             <?php $tong=0; ?>
             <?php foreach($_SESSION['cart'] as $key => $value): ?>
-               <?php var_dump($key); 
-               var_dump($key)?>
-                <tr>
+            
+                     <tr>
                     <td data-th="Product">
                         <div class="row">
                             <div class="col-sm-2 hidden-xs"><img src="/DoAnWeb2020/admin/modules/product/img_product/<?php echo $value['avatar']?>" alt="Sản phẩm 1" class="img-responsive" width="100">

@@ -68,9 +68,9 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                            <?php echo $_SESSION['name'] ?>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Đơn hàng</a>
+                                <a class="dropdown-item" href="pages/don-hang.php">Đơn hàng</a>
                                 <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#">Hồ sơ</a>
+                                <a class="dropdown-item" href="pages/ho-so.php">Hồ sơ</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/DoAnWeb2020/public/pages/thoat.php">Đăng xuất</a>
                             </div>
