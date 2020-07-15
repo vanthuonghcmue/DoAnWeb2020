@@ -2,12 +2,15 @@
 <?php require_once __DIR__ . "/../../autoload/autoload.php"; ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
 <?php 
+
 if( !isset ($_SESSION['namead']) ){
    echo "<script> alert ('Bạn phải là admin để sử dụng chức năng này. Hãy đăng nhập để tiếp tục nhé'); 
    location.href='/DoAnWeb2020/admin/modules/'</script> ";
 }
 
-$sotin1trang = 4; 
+$sotin1trang = 10; 
+
+
 
 if( isset($_GET["trang"]) ){
 	$trang = $_GET["trang"];
