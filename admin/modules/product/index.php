@@ -40,7 +40,8 @@ if( isset($_GET["trang"]) ){
 
                   <?php
                   try {
-                     $sql = "SELECT * FROM `product`";
+                     $from = ($trang -1 ) * $sotin1trang;
+                     $sql = "SELECT * FROM `product` LIMIT $from, $sotin1trang";
                      $result = DataProvider::ExecuteQuery($sql);
                      $stt = 0;
                      while ($row = mysqli_fetch_array($result)) 
@@ -79,17 +80,35 @@ if( isset($_GET["trang"]) ){
                   }
                ?>
                </table>
-               <div class="custom-pagination">
-                  <nav aria-label="Page navigation example">
-                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                     </ul>
-                  </nav>
-               </div>
+               <div id="phantrangproduct">
+             <?php
+             $x = "SELECT id FROM `product`";
+             $kq = DataProvider::ExecuteQuery($x);
+             $tongsotin = mysqli_num_rows($kq);
+             $sotrang = ceil($tongsotin / $sotin1trang);
+
+               if ($trang > 1 && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang-1).'"> Prev</a> | ';
+               }
+               for ($i = 1; $i <= $sotrang; $i++){
+               if ($i == $trang){
+               echo '<span>'.$i.'</span> | ';
+               }
+               else{
+               echo '<a href="index.php?trang='.$i.'">'.$i.'</a> | ';
+               }
+               }
+               if ($trang < $sotrang && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang+1).'">Next</a>  ';
+               }
+          ?>
+</div>
+<style>
+   #phantrangproduct{
+      font-size:larger;
+
+   }
+   </style>
             </div>
          </div>
       </div>

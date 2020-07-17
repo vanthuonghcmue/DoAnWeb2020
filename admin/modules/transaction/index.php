@@ -5,6 +5,14 @@
 if( !isset ($_SESSION['namead']) ){
    echo "<script> alert ('Bạn phải là admin để sử dụng chức năng này. Hãy đăng nhập để tiếp tục nhé'); 
    location.href='/DoAnWeb2020/admin/modules/'</script> ";}
+   $sotin1trang = 10; 
+   if( isset($_GET["trang"]) ){
+      $trang = $_GET["trang"];
+      settype($trang, "int");
+   }else{
+      $trang = 1;	
+   
+   }
  ?>
 <div class="product-status mg-tb-15">
    <div class="container-fluid">
@@ -28,7 +36,8 @@ if( !isset ($_SESSION['namead']) ){
 
                   <?php
                   try {
-                     $sql = "SELECT * FROM `transaction`";
+                     $from = ($trang -1 ) * $sotin1trang;
+                     $sql = "SELECT * FROM `transaction` LIMIT $from, $sotin1trang";
                      $result = DataProvider::ExecuteQuery($sql);
                      $stt = 0;
                      while ($row = mysqli_fetch_array($result)) 
@@ -65,17 +74,35 @@ if( !isset ($_SESSION['namead']) ){
                   }
                ?>
                </table>
-               <div class="custom-pagination">
-                  <nav aria-label="Page navigation example">
-                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                     </ul>
-                  </nav>
-               </div>
+               <div id="phantrangtransaction">
+             <?php
+             $x = "SELECT id FROM `transaction`";
+             $kq = DataProvider::ExecuteQuery($x);
+             $tongsotin = mysqli_num_rows($kq);
+             $sotrang = ceil($tongsotin / $sotin1trang);
+
+               if ($trang > 1 && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang-1).'"> Prev</a> | ';
+               }
+               for ($i = 1; $i <= $sotrang; $i++){
+               if ($i == $trang){
+               echo '<span>'.$i.'</span> | ';
+               }
+               else{
+               echo '<a href="index.php?trang='.$i.'">'.$i.'</a> | ';
+               }
+               }
+               if ($trang < $sotrang && $sotrang > 1){
+               echo '<a href="index.php?trang='.($trang+1).'">Next</a>  ';
+               }
+          ?>
+</div>
+<style>
+   #phantrangtransaction{
+      font-size:larger;
+
+   }
+   </style>
             </div>
          </div>
       </div>
