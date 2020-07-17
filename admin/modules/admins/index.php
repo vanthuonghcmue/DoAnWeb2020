@@ -47,7 +47,14 @@ if( isset($_GET["trang"]) ){
                      $from = ($trang -1 ) * $sotin1trang;
                      $sql = "SELECT id, name,address,email,password,phone,status, level,avatar, created_at, updata_up  FROM `admins` LIMIT $from, $sotin1trang  ";
                      $result = DataProvider::ExecuteQuery($sql);
-            
+                     
+                     
+
+
+
+
+
+
                      $stt = 0;
                      while ($row = mysqli_fetch_array($result)) {
                         $stt++;

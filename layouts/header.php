@@ -87,7 +87,46 @@ require_once __DIR__ . "/../autoload/autoload.php";
                     src="../resources/img/logoCong_ty_Co_Phan_Kien_Truc_Xay_Dung_song_phat.jpg.png" alt="logo"></a>
             <div>
             <ul class="main-nav">
+              <li>
+                <form class="form-inline " id="reseach" action="show-row.php" method="get">
+             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-primary my-2 my-sm-0" type="submit" name="ok" value="search">Search</button>
+           </form>
+           
+          </li>
                     <?php
+                      if (isset($_REQUEST['ok'])) 
+                      {
+                          // Gán hàm addslashes để chống sql injection
+                          $search = addslashes($_GET['search']);
+                        
+                          // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                          if ( empty($search)) {
+                              echo "<script> alert ('bạn hãy nhập từ khóa nhé')</script>"; 
+                          } 
+                          else
+                          {
+                            
+                              // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
+                              $query = "SELECT * FROM `product` WHERE `name` LIKE '%$search%'"; 
+                         
+                              $type11 = DataProvider::ExecuteQuery("$query");
+                          
+                              $type10 = mysqli_fetch_array($type11);        
+                            
+                            }
+                        
+                        }
+                                                      
+
+
+
+
+
+
+
+
+
                     $sql = "SELECT * FROM `category`";
                     $category = DataProvider::ExecuteQuery($sql);
                     while ($loai = mysqli_fetch_array($category)) {
@@ -140,3 +179,4 @@ require_once __DIR__ . "/../autoload/autoload.php";
     </div>
     <div class="clearfix"> </div>
     <div id="SITE_HEADER-placeholder"></div>
+ 
