@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 01:08 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 17, 2020 lúc 12:39 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webnoithat`
+-- Cơ sở dữ liệu: `webnoithat`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Cấu trúc bảng cho bảng `admins`
 --
 
 CREATE TABLE `admins` (
@@ -43,7 +43,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admins`
+-- Đang đổ dữ liệu cho bảng `admins`
 --
 
 INSERT INTO `admins` (`id`, `name`, `address`, `email`, `account`, `password`, `phone`, `status`, `level`, `avatar`, `created_at`, `updata_up`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `admins` (`id`, `name`, `address`, `email`, `account`, `password`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
@@ -73,7 +73,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
 INSERT INTO `category` (`id`, `name`, `slug`, `images`, `banner`, `home`, `status`, `created_at`, `updated`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `images`, `banner`, `home`, `statu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -100,10 +100,36 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `transaction_id`, `product_id`, `soluong`, `gia`, `sale`, `created_at`) VALUES
+(46, 52, 230, 2, 840000, 0, '2020-07-15 14:29:58'),
+(47, 52, 31, 1, 25300000, 0, '2020-07-15 14:29:58'),
+(48, 52, 99, 1, 6450000, 0, '2020-07-15 14:29:58'),
+(49, 53, 109, 1, 1750000, 0, '2020-07-15 14:54:18'),
+(50, 53, 227, 1, 4600000, 50, '2020-07-15 14:54:18'),
+(51, 53, 184, 1, 6890000, 0, '2020-07-15 14:54:18'),
+(52, 54, 59, 1, 930000, 0, '2020-07-15 15:05:53'),
+(53, 54, 52, 1, 4350000, 45, '2020-07-15 15:05:53'),
+(54, 54, 280, 1, 740000, 20, '2020-07-15 15:05:53'),
+(55, 54, 139, 1, 650000, 0, '2020-07-15 15:05:53'),
+(56, 54, 239, 1, 6300000, 0, '2020-07-15 15:05:53'),
+(57, 54, 127, 1, 5600000, 0, '2020-07-15 15:05:53'),
+(58, 55, 82, 1, 38950000, 0, '2020-07-15 15:14:50'),
+(59, 55, 172, 1, 8900000, 20, '2020-07-15 15:14:50'),
+(60, 55, 212, 1, 6852000, 25, '2020-07-15 15:14:50'),
+(61, 55, 205, 1, 18120000, 10, '2020-07-15 15:14:51'),
+(62, 56, 222, 1, 4620000, 0, '2020-07-17 09:56:03'),
+(63, 56, 117, 1, 450000, 5, '2020-07-17 09:56:03'),
+(64, 56, 30, 1, 10100000, 0, '2020-07-17 09:56:04'),
+(65, 56, 236, 1, 8530000, 0, '2020-07-17 09:56:04');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -125,7 +151,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`, `category`, `type`, `content`, `head`, `view`, `hot`, `created_at`, `updata_up`) VALUES
@@ -372,13 +398,12 @@ INSERT INTO `product` (`id`, `name`, `slug`, `soluong`, `gia`, `sale`, `avatar`,
 (278, 'Khung Hình Bằng Gỗ', NULL, 100, 500000, 20, 'e.jpg', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:05:36', '2020-07-10 06:05:36'),
 (279, 'Khung Hình Bằng Gỗ', NULL, 50, 640000, 0, 'cb2e09_188674a305944cca9cbb4536a2dfbae4_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:17:40', '2020-07-10 06:17:40'),
 (280, 'Khung Hình Bằng Gỗ', NULL, 50, 740000, 20, 'cb2e09_b77327f3223a46388b5fdf292e568b40_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:04', '2020-07-10 06:18:04'),
-(281, 'Giá Kẹp Danh Thiếp', NULL, 50, 340000, 0, 'cb2e09_0681329762004c768f32ae2a9b4cc4e5_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:39', '2020-07-10 06:18:39'),
-(282, 'HẢI ĐẸP TRAI', NULL, 2, 2147483647, 99, '11111111.jpg', '74', '13', '300k/đêm ', 0, 0, 0, '2020-07-14 14:43:41', '2020-07-14 15:13:49');
+(281, 'Giá Kẹp Danh Thiếp', NULL, 50, 340000, 0, 'cb2e09_0681329762004c768f32ae2a9b4cc4e5_mv2.webp', '75', '40', 'CERUBO bắt nguồn từ thị trấn Takumi, ở Hida Takayama, Nhật Bản. Công ty được biết đến với việc thiết kế và sản xuất các sản phẩm Nội thất bằng gỗ thịt với các kỹ năng truyền thống của Nhật Bản. Kỹ năng \"Truyền thống của Nhật Bản\" là \"đặc sản\" của chúng tôi vì chúng đã được phát triển và trao dồi qua nhiều thế hệ của thợ thủ công tại Nhật Bản. Hiện tại, với công nghệ tối tân nhất kết hợp với kỹ năng của các thợ thủ công, chúng tôi luôn mang tới những sản phẩm Nội thất tốt nhất cho khách hàng với giá phải chăng nhất, đó là cam kết của chúng tôi.', 0, 0, 0, '2020-07-10 06:18:39', '2020-07-10 06:18:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction`
+-- Cấu trúc bảng cho bảng `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -391,10 +416,21 @@ CREATE TABLE `transaction` (
   `created_up` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `amount`, `user_id`, `status`, `note`, `created_at`, `created_up`) VALUES
+(52, 33430000, 9, 0, 'Liên lạc trước khi giao giúp mình ạ ! ', '2020-07-15 14:29:58', '2020-07-15 14:29:58'),
+(53, 10940000, 10, 0, 'Mong cửa hàng giao trước 1/8 giúp mình nha !', '2020-07-15 14:54:18', '2020-07-15 14:54:18'),
+(54, 16464500, 11, 0, 'liên hệ qua số 0938950259 giúp mình, phòng khi số dt trên gọi không được ', '2020-07-15 15:05:53', '2020-07-15 15:05:53'),
+(55, 67517000, 12, 0, 'Mong shop kiểm hàng kĩ giúp mình vì chủ rất khó tính nha ', '2020-07-15 15:14:50', '2020-07-15 15:14:50'),
+(56, 23677500, 9, 0, 'Liên lạc trước khi giao giúp mình ạ ! ', '2020-07-17 09:56:03', '2020-07-17 09:56:03');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type`
+-- Cấu trúc bảng cho bảng `type`
 --
 
 CREATE TABLE `type` (
@@ -404,7 +440,7 @@ CREATE TABLE `type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type`
+-- Đang đổ dữ liệu cho bảng `type`
 --
 
 INSERT INTO `type` (`id`, `name`, `category`) VALUES
@@ -444,7 +480,7 @@ INSERT INTO `type` (`id`, `name`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -463,104 +499,103 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `address`, `phone`, `Account`, `password`, `avatar`, `status`, `token`, `created_at`, `updata_up`) VALUES
 (9, 'Quynhanh', 'Quynhanh123@gmail.com', '64 Hoàng Hoa Thám', '0934786952', 'QuynhAnh123', '123456789', '2.jpg', 1, '1', '2020-07-07 09:49:29', '2020-07-11 02:10:04'),
 (10, 'nguyenkhoi', 'nguyenkhoi159@gmail.com', '235 Nơ Trang Long', '0767548612', 'MinhKhoi147', '789456123', '4.jpg', 1, '1', '2020-07-07 09:51:37', '2020-07-11 02:10:32'),
 (11, 'nguyenminhkhan', 'nguyenminhkhang136@gmail.com', '147 Nguyễn Tri Phương ', '0874632148', 'KhangVo083', 'Khang15937', '3.jpg', 1, '1', '2020-07-07 09:55:35', '2020-07-11 02:10:40'),
-(12, 'dungtran', 'dungtran1506@gmail.com', '264 Hoàng Văn Thụ', '0796342586', 'DungTran14', 'dungtr@n1478951', '1.jpg', 1, '1', '2020-07-07 09:57:20', '2020-07-11 02:10:55'),
-(13, 'ĐẶng Vân Thương11111', 'vanthuonghcmue@gmail.com', '351a Lạc Long Quân111', '0345197651111', 'Thuongpro11', '12345678911', 'Untitled.png', 1, '1', '2020-07-11 02:13:29', '2020-07-15 10:06:09');
+(12, 'dungtran', 'dungtran1506@gmail.com', '264 Hoàng Văn Thụ', '0796342586', 'DungTran14', 'dungtr@n1478951', '1.jpg', 1, '1', '2020-07-07 09:57:20', '2020-07-11 02:10:55');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admins`
+-- Chỉ mục cho bảng `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `transaction`
+-- Chỉ mục cho bảng `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type`
+-- Chỉ mục cho bảng `type`
 --
 ALTER TABLE `type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT cho bảng `admins`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
 
 --
--- AUTO_INCREMENT for table `transaction`
+-- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `type`
+-- AUTO_INCREMENT cho bảng `type`
 --
 ALTER TABLE `type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
