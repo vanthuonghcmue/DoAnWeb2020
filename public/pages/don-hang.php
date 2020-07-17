@@ -94,12 +94,14 @@ require_once __DIR__ . "/../../autoload/autoload.php";
     </div>
 </body>
 <style>
-    #alll {
+#alll {
         color: blue;
-    }
-
-    h2 {
-        color: brown;
-    }
+}
+ h2{
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  letter-spacing: 8px;
+  color: brown;
+}
 </style>
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>

@@ -18,7 +18,7 @@ if( !isset ($_SESSION['cart']) ){
     <div class="container" style="min-height:450px">
         <table  class="table table-hover table-condensed">
             <thead>
-                <tr>
+                <tr id="giohang">
                     <th style="width:40%">Tên sản phẩm</th>
                     <th style="width:20%">Giá</th>
                     <th style="width:8%">Số lượng</th>
@@ -74,4 +74,15 @@ if( !isset ($_SESSION['cart']) ){
         </table>
     </div>
 </element>
+<style>
+#giohang{
+        color: blue;
+}
+ h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  letter-spacing: 8px;
+  color: brown;
+    }
+</style>
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>

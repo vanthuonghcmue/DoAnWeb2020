@@ -34,13 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>  location.href='thong-bao.php'   </script>";
 }
 ?>
-
-<style>
-    label.error{
-        color:red;
-        font-style: italic;
-    }
-    </style>
 <div class="product-status mg-tb-15">
     <div class="container-fluid">
         <div class="row">
@@ -97,5 +90,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
+<style>
+label.error{
+        color:red;
+        font-style: italic;
+    }
+ h2{
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  letter-spacing: 8px;
+  color: brown;
+}
+    </style>
 <?php
 require_once __DIR__ . "/../../layouts/footer.php" ?>

@@ -15,4 +15,12 @@ require_once __DIR__ . "/../../autoload/autoload.php";
 <a href="../index.php"><button  type="button" class="btn btn-primary btn-lg btn-block">Quay Về Trang Chủ</button></a>
 
 </element>
+<style>
+ h2{
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  letter-spacing: 8px;
+  color: brown;
+}
+    </style>
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>

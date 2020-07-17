@@ -6,12 +6,6 @@ require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
 
 ?>
-<style>
-    label.error{
-        color:red;
-        font-style: italic;
-    }
-    </style>
 <div class="product-status mg-tb-15">
     <div class="container-fluid">
         <div class="row">
@@ -100,6 +94,18 @@ require_once __DIR__ . "/../../autoload/autoload.php";
         </div>
     </div>
 </div>
+<style>
+label.error{
+        color:red;
+        font-style: italic;
+    }
+ h2{
+  font-family: "Dancing Script", cursive;
+  font-size: xx-large;
+  letter-spacing: 8px;
+  color: brown;
+}
+    </style>
 <?php
 if (isset($_REQUEST['TenUS'])) {
     $sql = "UPDATE `users` SET `name` = '{$_REQUEST['TenUS']}', `address` = '{$_REQUEST['address']}', `email` = '{$_REQUEST['email']}', `Account` = '{$_REQUEST['account']}', `password` = '{$_REQUEST['password']}', `phone` = '{$_REQUEST['phone']}' WHERE `users`.`id` = $id";
