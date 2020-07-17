@@ -71,6 +71,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                                 <a class="dropdown-item" href="pages/don-hang.php">Đơn hàng</a>
                                 <a class="dropdown-item" href="#"></a>
                                 <a class="dropdown-item" href="pages/ho-so.php">Hồ sơ</a>
+                                <a class="dropdown-item" href="pages/reset-pass.html">Đổi mật khẩu</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/DoAnWeb2020/public/pages/thoat.php">Đăng xuất</a>
                             </div>
@@ -213,9 +214,9 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
             </ul>
             <ul class="social-icons">
 
-                <li id="icon1"><a href="#" class="fab fa-facebook"></a></li>
+                <li id="icon1"><a href="https://www.facebook.com/hoouzy/" class="fab fa-facebook"></a></li>
                 <li id="icon2"><a href="#" class="fab fa-twitter icon2"></a></li>
-                <li id="icon3"><a href="#" class="fab fa-instagram icon3"></a></li>
+                <li id="icon3"><a href="https://www.instagram.com/hoouzy.home/" class="fab fa-instagram icon3"></a></li>
                 <li id="icon4"><a href="#" class="fab fa-google-plus-square icon4"></a></li>
             </ul>
         </div>

@@ -27,7 +27,7 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                 </label>
             </li>
         </ul>
-        <ul class="content_left_nav"> Chất Hiệu
+        <ul class="content_left_nav"> Chất Liệu
             <li>
                 <label>
                     <input type="checkbox"></input>

@@ -3,10 +3,10 @@ require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
 ?>
 <!-- Begin element -->
-<element class="container">
+<element class="container" >
 <h2 class="text-center">Thông Báo</h2>
 <?php if (isset ($_SESSION['success'])): ?>
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success" role="alert" style="min-height:400px" >
   <?php echo $_SESSION['success']; unset($_SESSION['success']) ?>
   
 </div>
