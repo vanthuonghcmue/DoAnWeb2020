@@ -73,9 +73,11 @@ if( !isset ($_SESSION['namead']) ){
                                        $row1= mysqli_fetch_array($result1);
                
                                        
-                                       if ($row['status']==0 ){ $status = "chưa xác nhận";  }
+                                       if ($row['status']==0 ){ 
+                                          $status = "chưa xác nhận"; 
+                                        }
                                        else {
-                                           $status = "Đã xác nhận";
+                                          $status = "Đã xác nhận";
                                        }
                                        $stt++;
                                        $chuoi = <<< EOD
@@ -128,7 +130,7 @@ if( !isset ($_SESSION['namead']) ){
                                             <td> {$row1['name']}</td>
                                             <td> {$row['amount']} </td>
                                             <td> {$row['created_at']} </td>
-                                            <td> <button type="button" class="btn btn-success">{$status} </button> </td>
+                                            <td> <a href="status.php?id= {$row['id']}"><button type="button" class="btn btn-success">{$status} </button></a> </td>
                                             <td>
                                                 <a href="see.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fas fa-eye" aria-hidden="true"></i></button></a>
                                                 <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
@@ -141,7 +143,6 @@ if( !isset ($_SESSION['namead']) ){
                                  }
                      }
                   
-                     
                   }
                    catch (Exception $ex) {
                      echo "Không thể mở CSDL";
