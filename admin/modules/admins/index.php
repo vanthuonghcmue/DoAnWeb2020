@@ -45,39 +45,94 @@ if( isset($_GET["trang"]) ){
                   <?php
                   try {
                      $from = ($trang -1 ) * $sotin1trang;
-                     $sql = "SELECT id, name,address,email,password,phone,status, level,avatar, created_at, updata_up  FROM `admins` LIMIT $from, $sotin1trang  ";
-                     $result = DataProvider::ExecuteQuery($sql);
+                     $sql = "SELECT * FROM `admins`  ";
+                    
                      
                      
+                     if (isset($_REQUEST['ok'])) 
+                     {
+                         // Gán hàm addslashes để chống sql injection
+                         $search = addslashes($_GET['search']);
+                     
+                         // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                         if (empty($search)) {
+                           echo "<script> alert ('bạn hãy nhập từ khóa nhé')</script>"; 
+                         } 
+                         else
+                         {
+                              $sql .=  " WHERE  `name` LIKE '%$search%' LIMIT $from, $sotin1trang"; 
+                      
+                              $type11 = DataProvider::ExecuteQuery("$sql");
+                              
+                              $type10 = mysqli_fetch_array($type11);
+                            
+                         
+                             if (isset ($type10)  && $search != "") 
+                             {
+                              
+                              $stt = 0;
+                              $type11 = DataProvider::ExecuteQuery("$sql");
 
-
-
-
-
-
-                     $stt = 0;
-                     while ($row = mysqli_fetch_array($result)) {
-                        $stt++;
-                        $chuoi = <<< EOD
-                             <tr>
-                             <td>$stt</td>
-                             <td><img src="img_admins/{$row['avatar']}" ></img>  </td>
-                             <td> {$row['name']} </td>
-                             <td> {$row['level']} </td>
-                             <td> {$row['address']} </td>
-                             <td> {$row['email']} </td>
-                             <td> {$row['password']} </td>
-                             <td> {$row['phone']} </td>
-                             <td>{$row['created_at']}</td>
-                             <td>{$row['updata_up']}</td>
-                             <td>
-                                 <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                 <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
-                             </td>
-                         </tr>
-                         EOD;
-                        echo $chuoi;
+                              while ($row = mysqli_fetch_array($type11)) {
+                                 $stt++;
+                                 $chuoi = <<< EOD
+                                      <tr>
+                                      <td>$stt</td>
+                                      <td><img src="img_admins/{$row['avatar']}" ></img>  </td>
+                                      <td> {$row['name']} </td>
+                                      <td> {$row['level']} </td>
+                                      <td> {$row['address']} </td>
+                                      <td> {$row['email']} </td>
+                                      <td> {$row['password']} </td>
+                                      <td> {$row['phone']} </td>
+                                      <td>{$row['created_at']}</td>
+                                      <td>{$row['updata_up']}</td>
+                                      <td>
+                                          <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                          <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                      </td>
+                                  </tr>
+                                  EOD;
+                                 echo $chuoi;
+                             }
+                           }
+                             
+                            else {
+                              echo "<script> alert ('Hiện không tìm tên admin cần tìm');
+                              location.href='index.php'</script> "; 
+                             }
+                            }
+                         }
+                        else{
+                           $result = DataProvider::ExecuteQuery($sql);
+                             
+                              $row = mysqli_fetch_array($result);
+                              $stt = 0;
+                              while ($row = mysqli_fetch_array($result)) {
+                                 $stt++;
+                                 $chuoi = <<< EOD
+                                      <tr>
+                                      <td>$stt</td>
+                                      <td><img src="img_admins/{$row['avatar']}" ></img>  </td>
+                                      <td> {$row['name']} </td>
+                                      <td> {$row['level']} </td>
+                                      <td> {$row['address']} </td>
+                                      <td> {$row['email']} </td>
+                                      <td> {$row['password']} </td>
+                                      <td> {$row['phone']} </td>
+                                      <td>{$row['created_at']}</td>
+                                      <td>{$row['updata_up']}</td>
+                                      <td>
+                                          <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                          <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                      </td>
+                                  </tr>
+                                  EOD;
+                                 echo $chuoi;
+                              }
                      }
+
+  
                   } catch (Exception $ex) {
                      echo "Không thể mở CSDL";
                   }

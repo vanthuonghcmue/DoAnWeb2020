@@ -41,7 +41,74 @@ if( isset($_GET["trang"]) ){
                   <?php
                   try {
                      $from = ($trang -1 ) * $sotin1trang;
-                     $sql = "SELECT * FROM `product` LIMIT $from, $sotin1trang";
+                     $sql = "SELECT * FROM `product` ";
+
+                     if (isset($_REQUEST['ok'])) 
+                     {
+                         // Gán hàm addslashes để chống sql injection
+                         $search = addslashes($_GET['search']);
+                     
+                         // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                         if (empty($search)) {
+                           echo "<script> alert ('bạn hãy nhập từ khóa nhé')
+                           location.href='index.php'</script>"; 
+
+                         } 
+                         else
+                         {
+                              $sql .=  " WHERE  `name` LIKE '%$search%' LIMIT $from, $sotin1trang"; 
+                      
+                              $type11 = DataProvider::ExecuteQuery("$sql");
+                              
+                              $type10 = mysqli_fetch_array($type11);
+
+                              if (isset ($type10)  && $search != "") 
+                              {      
+                                 
+                                 $type11 = DataProvider::ExecuteQuery("$sql");
+                                 $stt = 0;
+                                 while ($row = mysqli_fetch_array($type11)) 
+                                 {
+                                    $sql1="SELECT name FROM `category`  WHERE `category`.`id` = '{$row['category']}'";      
+                                    // WHERE `category`.`id` = '{$row['category']}'            
+                                    $result1= DataProvider::ExecuteQuery($sql1);
+                                    $row1= mysqli_fetch_array($result1);
+            
+                                    $sql2="SELECT * FROM `type` WHERE `type`.`id` = '{$row['type']}'";                  
+                                    $result2= DataProvider::ExecuteQuery($sql2);
+                                    $row2= mysqli_fetch_array($result2);
+            
+                                    $stt++;
+                                    $chuoi = <<< EOD
+                                         <tr>
+                                         <td>$stt</td>
+                                         <td><img src="img_product/{$row['avatar']}" ></img></td>                           
+                                         <td> {$row1['name']}</td>
+                                         <td> {$row2['name']}</td>
+                                         <td> {$row['name']} </td>
+                                         <td> {$row['soluong']} </td>
+                                         <td> {$row['gia']} </td>
+                                         <td>{$row['created_at']}</td>
+                                         <td>{$row['updata_up']}</td>
+                                         <td>
+                                             <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                             <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                         </td>
+                                     </tr>
+                                     EOD;
+                                    echo $chuoi;
+
+                                 }
+                              }
+
+                              else {
+                                 echo "<script> alert ('Hiện không tìm tên admin cần tìm');
+                                 location.href='index.php'</script> "; 
+                                }
+                               }
+                     }
+                  else{
+                     $sql .=  "LIMIT $from, $sotin1trang";
                      $result = DataProvider::ExecuteQuery($sql);
                      $stt = 0;
                      while ($row = mysqli_fetch_array($result)) 
@@ -74,6 +141,7 @@ if( isset($_GET["trang"]) ){
                          </tr>
                          EOD;
                         echo $chuoi;
+                     }
                      }
                   } catch (Exception $ex) {
                      echo "Không thể mở CSDL";

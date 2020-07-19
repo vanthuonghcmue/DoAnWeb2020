@@ -37,39 +37,113 @@ if( !isset ($_SESSION['namead']) ){
                   <?php
                   try {
                      $from = ($trang -1 ) * $sotin1trang;
-                     $sql = "SELECT * FROM `transaction` LIMIT $from, $sotin1trang";
-                     $result = DataProvider::ExecuteQuery($sql);
-                     $stt = 0;
-                     while ($row = mysqli_fetch_array($result)) 
+                     $sql = "SELECT * FROM `transaction` ";
+                     
+                     if (isset($_REQUEST['ok'])) 
                      {
-                        $sql1="SELECT name FROM `users`  WHERE `users`.`id` = '{$row['user_id']}'";      
-                        // WHERE `category`.`id` = '{$row['category']}'            
-                        $result1= DataProvider::ExecuteQuery($sql1);
-                        $row1= mysqli_fetch_array($result1);
+                         // Gán hàm addslashes để chống sql injection
+                         $search = addslashes($_GET['search']);
+                     
+                         // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                         if (empty($search)) {
+                           echo "<script> alert ('Bạn hãy nhập mã đơn hàng nhé')
+                           location.href='index.php'</script>"; 
 
-                        
-                        if ($row['status']==0 ){ $status = "chưa xác nhận";  }
-                        else {
-                            $status = "Đã xác nhận";
-                        }
-                        $stt++;
-                        $chuoi = <<< EOD
-                             <tr>
-                             <td>$stt</td>                                                   
-                             <td> {$row['id']}</td>
-                             <td> {$row1['name']}</td>
-                             <td> {$row['amount']} </td>
-                             <td> {$row['created_at']} </td>
-                             <td> <button type="button" class="btn btn-success">{$status} </button> </td>
-                             <td>
-                                 <a href="see.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fas fa-eye" aria-hidden="true"></i></button></a>
-                                 <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
-                             </td>
-                         </tr>
-                         EOD;
-                        echo $chuoi;
+                         } 
+                         else
+                         {
+                              $sql .=  " WHERE `id` LIKE '%$search%' LIMIT $from, $sotin1trang"; 
+                          
+                              $type11 = DataProvider::ExecuteQuery("$sql");
+                              
+                              $type10 = mysqli_fetch_array($type11);
+
+                              if (isset ($type10)  && $search != "") 
+                              {      
+                                 
+                                 $type11 = DataProvider::ExecuteQuery("$sql");
+                                 $stt = 0;
+                                 while ($row = mysqli_fetch_array($type11)) 
+                                 {
+
+
+                                       $sql1="SELECT name FROM `users`  WHERE `users`.`id` = '{$row['user_id']}'";      
+                                       // WHERE `category`.`id` = '{$row['category']}'            
+                                       $result1= DataProvider::ExecuteQuery($sql1);
+                                       $row1= mysqli_fetch_array($result1);
+               
+                                       
+                                       if ($row['status']==0 ){ $status = "chưa xác nhận";  }
+                                       else {
+                                           $status = "Đã xác nhận";
+                                       }
+                                       $stt++;
+                                       $chuoi = <<< EOD
+                                            <tr>
+                                            <td>$stt</td>                                                   
+                                            <td> {$row['id']}</td>
+                                            <td> {$row1['name']}</td>
+                                            <td> {$row['amount']} </td>
+                                            <td> {$row['created_at']} </td>
+                                            <td> <button type="button" class="btn btn-success">{$status} </button> </td>
+                                            <td>
+                                                <a href="see.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fas fa-eye" aria-hidden="true"></i></button></a>
+                                                <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                            </td>
+                                        </tr>
+                                        EOD;
+                                       echo $chuoi;
+                                 }
+                              }
+                              
+                           
+                                 else {
+                                    echo "<script> alert ('Hiện không tìm thấy mã đơn hàng cần tìm');
+                                    location.href='index.php'</script> "; 
+                                   }
+                     } 
+                  }
+                             
+                  else{
+
+                                    $result = DataProvider::ExecuteQuery($sql);
+                                    $stt = 0;
+                                    while ($row = mysqli_fetch_array($result)) 
+                                    {
+                                       $sql1="SELECT name FROM `users`  WHERE `users`.`id` = '{$row['user_id']}'";      
+                                       // WHERE `category`.`id` = '{$row['category']}'            
+                                       $result1= DataProvider::ExecuteQuery($sql1);
+                                       $row1= mysqli_fetch_array($result1);
+               
+                                       
+                                       if ($row['status']==0 ){ $status = "chưa xác nhận";  }
+                                       else {
+                                           $status = "Đã xác nhận";
+                                       }
+                                       $stt++;
+                                       $chuoi = <<< EOD
+                                            <tr>
+                                            <td>$stt</td>                                                   
+                                            <td> {$row['id']}</td>
+                                            <td> {$row1['name']}</td>
+                                            <td> {$row['amount']} </td>
+                                            <td> {$row['created_at']} </td>
+                                            <td> <button type="button" class="btn btn-success">{$status} </button> </td>
+                                            <td>
+                                                <a href="see.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fas fa-eye" aria-hidden="true"></i></button></a>
+                                                <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                            </td>
+                                        </tr>
+                                        EOD;
+                                       echo $chuoi;
+
+
+                                 }
                      }
-                  } catch (Exception $ex) {
+                  
+                     
+                  }
+                   catch (Exception $ex) {
                      echo "Không thể mở CSDL";
                   }
                ?>
