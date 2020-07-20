@@ -3,24 +3,16 @@ require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
 ?>
 <!-- Begin element -->
-<element class="container" >
-<h2 class="text-center">Thông Báo</h2>
-<?php if (isset ($_SESSION['success'])): ?>
-<div class="alert alert-success" role="alert" style="min-height:400px" >
-  <?php echo $_SESSION['success']; unset($_SESSION['success']) ?>
-  
-</div>
-<?php  ?>
-<?php endif ?>
-<a href="../index.php"><button  type="button" class="btn btn-primary btn-lg btn-block">Quay Về Trang Chủ</button></a>
+<?php 
+if (isset ($_SESSION['success'])){
+echo "<script> alert ('{$_SESSION['success']}')</script> ";
+      unset($_SESSION['success']);  
 
-</element>
-<style>
- h2{
-  font-family: "Dancing Script", cursive;
-  font-size: xx-large;
-  letter-spacing: 8px;
-  color: brown;
-}
-    </style>
+      echo "<script>  location.href='don-hang.php' </script> ";
+   
+
+
+} 
+  
+?>
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>
