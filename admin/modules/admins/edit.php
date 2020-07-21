@@ -42,10 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <label>Email</label>
                             <input type="email" class="form-control" placeholder="ABC@gmail.com" name="email" value="<?php echo $row['email'] ?>">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Tên Đăng Nhập</label>
                             <input type="text" class="form-control" placeholder="NguyenVanA" name="account" value="<?php echo $row['account'] ?>">
-                        </div>
+                        </div> -->
                         <div class="form-group">   
                             <label>Password</label>
                             <input type="password" class="form-control" placeholder="" name="password"value="<?php echo $row['password'] ?>">

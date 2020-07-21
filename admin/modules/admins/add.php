@@ -90,7 +90,7 @@ if(@$_FILES['Hinhdd']['error'] == 0){
         {
             $sql = "INSERT INTO `admins` (`id`, `name`, `address`, `email`, `account`,`password`, `phone`, `status`, `level`, `avatar`, `created_at`, `updata_up`) 
             VALUES (NULL, '{$_REQUEST['TenAD']}', '{$_REQUEST['address']}','{$_REQUEST['email']}', '{$_REQUEST['account']}','{$_REQUEST['pass']}', '{$_REQUEST['phone']}', '1','1','{$_FILES['Hinhdd']['name']}', current_timestamp() , current_timestamp())";
-            echo $sql;
+        
             DataProvider::ExecuteQuery($sql);
 		}
 }
