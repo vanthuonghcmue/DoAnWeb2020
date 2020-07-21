@@ -163,7 +163,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
 
     <section id="water" class="advertisement-section row">
         <!-- Bắt đầu giới thiệu về thương hiệu -->
-        <div class="col md-6 popup-gallery2 ">
+        <div class="col md-6 popup-gallery ">
             <a href="./resources/img/gt.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/gt.webp" alt="poto" st="0"> </a>
             <a href="./resources/img/hình trang chủ/thác nước 1.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 1.webp" alt="poto" st="1" style="display:none"> </a>
             <a href="./resources/img/hình trang chủ/thác nước 2.webp" title="sản phẩm mới nhất của bộ sưu tập"><img class="advertisement-section-img" src="./resources/img/hình trang chủ/thác nước 2.webp" alt="poto" st="2" style="display:none"> </a>

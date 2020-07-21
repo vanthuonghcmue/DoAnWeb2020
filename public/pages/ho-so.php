@@ -16,8 +16,8 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         <?php
                         try {
                             $sql = "SELECT * FROM users";
-                            if (isset($_SESSION['idad'])) {
-                                $id = $_SESSION['idad'];
+                            if (isset($_SESSION['id'])) {
+                                $id = $_SESSION['id'];
                                 $sql .= " WHERE id = " . $id;
                             }
                             $result = DataProvider::ExecuteQuery($sql);
