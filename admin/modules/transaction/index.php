@@ -90,8 +90,7 @@ if( !isset ($_SESSION['namead']) ){
                                             <td> <button type="button" class="btn btn-success">{$status} </button> </td>
                                             <td>
                                                 <a href="see.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fas fa-eye" aria-hidden="true"></i></button></a>
-                                                <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
-                                            </td>
+                                                <a href="delete.php?id= {$row['id']}" onclick="return confirm('Bạn có chắc muốn xóa loại sản phẩm này?')"> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>                                            </td>
                                         </tr>
                                         EOD;
                                        echo $chuoi;

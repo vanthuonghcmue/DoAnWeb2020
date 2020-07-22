@@ -21,7 +21,7 @@ if( isset($_GET["trang"]) ){
 <div class="product-status mg-tb-15">
    <div class="container-fluid">
       <div class="row">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="min-height:660px">
 
             <div class="product-status-wrap">
                <h4>Danh Sách Admin</h4>
@@ -124,7 +124,7 @@ if( isset($_GET["trang"]) ){
                                       <td>{$row['updata_up']}</td>
                                       <td>
                                           <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                          <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                          <a href="delete.php?id= {$row['id']}" onclick="return confirm('Bạn có chắc muốn xóa tài khoảng này?')" > <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
                                       </td>
                                   </tr>
                                   EOD;

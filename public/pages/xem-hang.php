@@ -3,7 +3,7 @@ require_once __DIR__ . "/../../layouts/header.php";
 require_once __DIR__ . "/../../autoload/autoload.php";
 ?>
 
-    <div class="single-product-tab-area mg-t-15 mg-b-30" id="all">
+    <div class="single-product-tab-area mg-t-15 mg-b-30" id="all" style="min-height:550px">
         <div class="container-fluid">
             <div class="row">
             <?php
