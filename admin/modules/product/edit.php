@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                         <?php
                            try {
-                               $sql = "SELECT name, soluong, gia, sale, avatar, category, content FROM product";
+                               $sql = "SELECT * FROM product";
                                if (isset($_GET['id'])) {
                                    $id = $_GET['id'];
                                    $sql .= " WHERE id = " . $id;
@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <select class="form-control form-control-lg" name="type">
                                 <?php 
                                 $dsLoai= DataProvider::ExecuteQuery( "SELECT * FROM `type`");
-                                while($loaisp = mysqli_fetch_array($dsLoai)){
-                               echo  " <option value='{$loaisp['id']}'> {$loaisp['name']} </option>"  ;
-                                }
+                                while($loaisp = mysqli_fetch_array($dsLoai)){ ?>
+                                <option value='<?php $loaisp['id']?>'  <?php echo $row['type']==$loaisp['id'] ? "selected ='selected'" : ' ' ?>> <?php echo $loaisp['name'] ?> </option>  ;
+                               <?php }
                                 ?>
                             </select>
                             
@@ -76,6 +76,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" ?>
+                            <img src="img_product/<?php echo $row['avatar'] ?>">
+
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô Tả Sản Phẩm</label>

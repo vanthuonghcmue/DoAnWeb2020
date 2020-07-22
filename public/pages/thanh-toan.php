@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>  location.href='thong-bao.php'   </script>";
 }
 ?>
-<div class="product-status mg-tb-15">
+<div class="product-status mg-tb-15" style="min-height:618px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

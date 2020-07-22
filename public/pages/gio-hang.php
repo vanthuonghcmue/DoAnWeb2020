@@ -15,7 +15,7 @@ if( !isset ($_SESSION['cart']) ){
 <element class="container">
 
     <h2 class="text-center">Giỏ Hàng Của Bạn</h2>
-    <div class="container" style="min-height:450px">
+    <div class="container" style="min-height:544px">
         <table  class="table table-hover table-condensed">
             <thead>
                 <tr id="giohang">

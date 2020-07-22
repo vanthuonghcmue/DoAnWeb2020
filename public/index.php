@@ -71,7 +71,7 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
                                 <a class="dropdown-item" href="pages/don-hang.php">Đơn hàng</a>
                                 <a class="dropdown-item" href="#"></a>
                                 <a class="dropdown-item" href="pages/ho-so.php">Hồ sơ</a>
-                                <a class="dropdown-item" href="pages/reset-pass.html">Đổi mật khẩu</a>
+                               
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/DoAnWeb2020/public/pages/thoat.php">Đăng xuất</a>
                             </div>
@@ -240,8 +240,8 @@ require_once __DIR__ . "/../autoload/autoload.php"; ?>
         <a href="#" id="messenger" class="fas fa-comment-dots"></a>
     </div>
     <!-- kết thúc hộp thoại tin nhắn -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="vendors/js/bootstrap.js"></script>

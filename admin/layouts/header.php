@@ -146,7 +146,7 @@
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                                                <li class="nav-item dropdown">
+                                                <!-- <li class="nav-item dropdown">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-envelope-o adminpro-chat-pro" aria-hidden="true"></i><span class="indicator-ms"></span></a>
                                                     <div role="menu" class="author-message-top dropdown-menu animated zoomIn">
                                                         <div class="message-single-top">
@@ -184,8 +184,8 @@
                                                             <a href="#">Xem tất cả tin nhắn</a>
                                                         </div>
                                                     </div>
-                                                </li>
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                                </li> -->
+                                                <!-- <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
                                                     <div role="menu" class="notification-author dropdown-menu animated zoomIn">
                                                         <div class="notification-single-top">
                                                             <h1>Thông Báo</h1>
@@ -222,7 +222,7 @@
                                                             <a href="#">Xem tất cả thông báo</a>
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li> -->
 
 
                                                 <li class="nav-item">
@@ -302,12 +302,12 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <ul class="breadcome-menu">
+                                        <!-- <ul class="breadcome-menu">
                                             <li><a href="#">Trang Chủ</a> <span class="bread-slash">/</span>
                                             </li>
                                             <li><span class="bread-blod">Danh Mục</span>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                 </div>
                             </div>

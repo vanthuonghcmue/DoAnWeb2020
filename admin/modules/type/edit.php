@@ -34,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <select class="form-control form-control-lg" name="loaisp">
                            <?php
                            $dsLoaiSP = DataProvider::ExecuteQuery("SELECT id, name FROM category");
-                           while ($loai = mysqli_fetch_array($dsLoaiSP)) {
-                              echo  " <option value='{$loai['id']}'> {$loai['name']} </option>";
-                           }
-                           ?>
+                           while ($loai = mysqli_fetch_array($dsLoaiSP)) { ?>
+                               <option value='<?php echo $loai['id'] ?>' <?php echo $row['category']==$loai['id'] ? "selected ='selected'" : ' ' ?> > <?php echo $loai['name'] ?> </option>;
+                         <?php   } ?>
+                           
                         </select>
                      </div>
                   </div>

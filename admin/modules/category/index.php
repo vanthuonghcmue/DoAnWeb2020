@@ -33,7 +33,7 @@ if( isset($_GET["trang"]) ){
                   <tr>
                      <th>Stt</th>
                      <th>Tên Danh Mục</th>
-                     <th>Trạng Thái</th>
+                     <!-- <th>Trạng Thái</th> -->
                      <th>Ngày Tạo</th>
                      <th>Ngày Sửa</th>
                      <th>Setting</th>
@@ -44,15 +44,16 @@ if( isset($_GET["trang"]) ){
                      $sql = "SELECT id, name, home, status, created_at,updated FROM `category` LIMIT $from, $sotin1trang";
                      $result = DataProvider::ExecuteQuery($sql);
                      $stt = 0;
+                     // <td>
+                     //             <button class={"pd-setting"} ></button>
+                     //          </td>
                      while ($row = mysqli_fetch_array($result)) {
                         $stt++;
                         $chuoi = <<< EOD
                              <tr>
                              <td>$stt</td>
                              <td> {$row['name']} </td>
-                             <td>
-                                 <button class={"pd-setting"} ></button>
-                             </td>
+                              
                              <td>{$row['created_at']}</td>
                              <td>{$row['updated']}</td>
                              <td>

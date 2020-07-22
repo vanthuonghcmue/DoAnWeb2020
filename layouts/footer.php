@@ -6,7 +6,7 @@
 
 
 
-    <footer>
+    <footer id="foot">
         <!-- Begin footer -->
         <p>
             Copyright &copy; 2020 by TTUTT TEAM

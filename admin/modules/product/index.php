@@ -136,7 +136,7 @@ if( isset($_GET["trang"]) ){
                              <td>{$row['updata_up']}</td>
                              <td>
                                  <a href="edit.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                 <a href="delete.php?id= {$row['id']} "> <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
+                                 <a href="delete.php?id= {$row['id']}" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')" > <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"> </i> </button> </a>
                              </td>
                          </tr>
                          EOD;
