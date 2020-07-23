@@ -73,13 +73,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Account</label>
-                            <input type="text" id="exampleInputEmail1" name="account">
+                            <input type="text" id="exampleInputEmail1" name="account" required minlength="3">
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1" name="password">
+                            <input type="password" id="exampleInputPassword1" name="password" required minlength="8">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
