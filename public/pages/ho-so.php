@@ -62,34 +62,6 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         <!-- End form add product -->
                     </form>  
 
-                    <script>
-                        $(function () {
-                        $("#USedit").validate({
-                            rules: {
-                                TenUS: { required: true ,minlength:3 },
-                                address:{required: true},
-                                phone:{required: true,digits:true,rangelength:[10,11]},
-                                account:{ required: true ,minlength:3 },
-                                email:{required: true,email:true},
-                                password:{required:true,minlength:8},
-                            
-                            },
-                            messages: {
-                                TenUS: { required:"Vui lòng nhập tên User" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
-                                address: { required: "Vui lòng nhập địa chỉ"},
-                                phone:{required: "Vui lòng nhập số điện thoại",digits:"Vui lòng nhập số nguyên",rangelength:"Số điện thoại chưa đúng định dạng"},
-                                account:{ required:"Vui lòng nhập tên đăng nhập" ,minlength: "Vui lòng nhập lớn hơn 3 kí tự"},
-                                email:{required: "Vui lòng nhập email",email:"Vui lòng điền đúng định dạng email"},
-                                password:{required: "Vui lòng nhập password",minlength:"Vui lòng nhập lớn hơn 8 kí tự"},
-                              
-
-                            }
-            
-                        });
-                        });
-                     
-                        </script>
-
                 </div>
             </div>
         </div>
