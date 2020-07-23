@@ -7,45 +7,35 @@ require_once __DIR__ . "/../../autoload/autoload.php";
 <element class="container">
     <div class="left_nav">
         <h2 class="title-nav"> Filter by </h2>
-        <ul class="content_left_nav"> Thương Hiệu
+        <ul class="content_left_nav">Sắp Xếp Theo Giá
             <li>
                 <label>
-                    <input type="checkbox"></input>
-                    Aaron
+                    <input type="radio" class="sort" id="z-a" data-oder="DESC" name="sortgia"></input>
+                    Từ cao đến thấp
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="checkbox"></input>
-                    Aaron
+                    <input type="radio" class="sort" id="a-z" data-oder="ASC"name="sortgia"></input>
+                    Từ thấp đến cao
                 </label>
             </li>
-            <li>
-                <label>
-                    <input type="checkbox"></input>
-                    Aaron
-                </label>
-            </li>
+            
         </ul>
-        <ul class="content_left_nav"> Chất Liệu
+        <ul class="content_left_nav"> Sắp Xếp Theo Tên
             <li>
                 <label>
-                    <input type="checkbox"></input>
-                    Aaron
+                    <input type="radio" class="sort" id="A-Z" data-oder="ASC" name="sortten" ></input>
+                    A-Z
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="checkbox"></input>
-                    Aaron
+                    <input type="radio" class="sort" id="Z-A" data-oder="DESC"name="sortten"></input>
+                    Z-A
                 </label>
             </li>
-            <li>
-                <label>
-                    <input type="checkbox"></input>
-                    Aaron
-                </label>
-            </li>
+            
         </ul>
 
     </div>
@@ -176,5 +166,38 @@ require_once __DIR__ . "/../../autoload/autoload.php";
 
     </div>
     <div class="clearfix"></div>
+
+
+
+ <!-- <script>  
+ $(document).ready(function(){ 
+    $(document).on('click','.sort', function(){
+         var column_name =$(this).attr("id");   
+         if (column_name=='a-z'|| column_name=="z-a"){
+             column_name='gia';
+         }
+         
+         if (column_name=='A-Z'|| column_name=="Z-A"){
+             column_name='name'; 
+         }
+         
+         var order =$(this).data("order");
+           $.ajax({  
+                url:"sort.php",  
+                method:"POST",  
+                data:{column_name  :column_name, order:order, sql:$sql },  
+                success:function(data)  
+                {  
+                     $('#employee_table').html(data);  
+                   
+                }  
+           })  
+
+
+        })
+
+    });
+</script> -->
+
 </element>
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>

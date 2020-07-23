@@ -8,7 +8,7 @@
 <div class="product-status mg-tb-15">
    <div class="container-fluid">
       <div class="row">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"style="min-height:600px">
             <div class="product-status-wrap">
                <h4>Sửa Danh Mục Sản Phẩm</h4>
                <form action="" method="post" enctype="multipart/form-data">

@@ -437,6 +437,7 @@ margin-bottom: 10px;
 }
 .title-nav{
   font-family: 'Pacifico', cursive;
+  margin-bottom: 30px;
 }
 .content_left_nav::after{
     content: " ";
@@ -457,7 +458,7 @@ list-style: none;
 .khung_san_pham{
 height: 450px;
 position: absolute;
-margin: 15px 0px;
+margin: 40px 0px;
 }
 .Hinh_anhsp>a> img{
   width:80%;
