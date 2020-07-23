@@ -28,32 +28,33 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         ?>
                         <div class="form-group">
                             <label>Tên User</label>
-                            <input type="text" class="form-control" placeholder="Enter name" name="TenUS" value="<?php echo $row['name'] ?>">
+                            <input type="text" class="form-control" placeholder="Enter name" name="TenUS" value="<?php echo $row['name'] ?>" required minlength="3">
                         </div>
                         <div class="form-group">
                             <label>Địa Chỉ</label>
-                            <input type="text" class="form-control" placeholder="351 Lạc Long Quân-Phường 4- Quận 5- Thành Phố Hồ Chí Minh" name="address" value="<?php echo $row['address'] ?>">
+                            <input type="text" class="form-control" placeholder="351 Lạc Long Quân-Phường 4- Quận 5- Thành Phố Hồ Chí Minh" name="address" value="<?php echo $row['address'] ?>" required>
                         </div>
                         <div class="form-group">
                             <label>Số Điện Thoại</label>
-                            <input type="number" class="form-control" placeholder="0345197655" name="phone" value="<?php echo $row['phone'] ?>">
+                            <input
+                               type="text"  class="form-control" placeholder="0345197655" name="phone" value="<?php echo $row['phone'] ?>"  pattern="(\+84|0)\d{9,10}"  title="Nhập số điện thoại từ 10 đến 11 số" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" placeholder="ABC@gmail.com" name="email" value="<?php echo $row['email'] ?>">
+                            <input type="email" class="form-control" placeholder="ABC@gmail.com" name="email" value="<?php echo $row['email'] ?>" required>
                         </div>
                         <div class="form-group">
                             <label>Tên Đăng Nhập</label>
-                            <input type="text" class="form-control" placeholder="NguyenVanA" name="account" value="<?php echo $row['Account'] ?>">
+                            <input type="text" class="form-control" placeholder="NguyenVanA" name="account" value="<?php echo $row['Account'] ?>" required>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="" name="password" value="<?php echo $row['password'] ?>">
+                            <input type="password" class="form-control" placeholder="" name="password" value="<?php echo $row['password'] ?>" required minlength="8">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh">
-                            <img src="/DoAnWeb2020/admin/modules/users/img_users/<?php echo $row['avatar'] ?>">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" required>
+                            <img src="/DoAnWeb2020/admin/modules/users/img_users/<?php echo $row['avatar'] ?>" >
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>

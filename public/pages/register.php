@@ -62,7 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-gp">
                                 <label for="exampleInputEmail1">Phone</label>
-                                <input type="number" id="exampleInputPhone" name="phone" required minlength="10">
+                                <input
+                               type="text" name="phone" pattern="(\+84|0)\d{9,10}"   title="Nhập số điện thoại từ 10 đến 11 số" required
+                                 />
                                 <i class="ti-mobile"></i>
                                 <div class="text-danger"></div>
                             </div>
@@ -140,7 +142,7 @@ if(@$_FILES['Hinh']['error'] == 0){
     
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
-    <script src="./DoAnWeb2020/public/resources/js/scripts.js"></script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>
