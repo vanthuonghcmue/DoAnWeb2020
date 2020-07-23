@@ -50,51 +50,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputName1">Full Name</label>
-                            <input type="text" id="exampleInputName1" name="name">
+                            <input type="text" id="exampleInputName1" name="name" required minlength="3">
                             <i class="ti-user"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1" name="email">
+                            <input type="email" id="exampleInputEmail1" name="email" required>
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                                 <label for="exampleInputEmail1">Phone</label>
-                                <input type="number" id="exampleInputPhone" name="phone">
+                                <input type="number" id="exampleInputPhone" name="phone" required minlength="10">
                                 <i class="ti-mobile"></i>
                                 <div class="text-danger"></div>
                             </div>
                        
                         <div class="form-gp">
                                 <label for="exampleInputEmail1">address</label>
-                                <input type="text" id="exampleInputPhone" name="address">
+                                <input type="text" id="exampleInputPhone" name="address" required>
                                 <i class="ti-home"></i>
                                 <div class="text-danger"></div>
                             </div>
                         <div class="form-gp">
                                 <label for="exampleInputEmail1">Account</label>
-                                <input type="text" id="exampleInputPhone" name="account">
+                                <input type="text" id="exampleInputPhone" name="account" required>
                                 <i class="ti-id-badge"></i>
                                 <div class="text-danger"></div>
                             </div>
                         <div class="form-gp">
                             
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1" name="password1">
+                            <input type="password" id="exampleInputPassword1" name="password1" required minlength="8">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword2">Confirm Password</label>
-                            <input type="password" id="exampleInputPassword2" name="password2">
+                            <input type="password" id="exampleInputPassword2" name="password2" required >
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" required>
                         </div>
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
@@ -140,7 +140,7 @@ if(@$_FILES['Hinh']['error'] == 0){
     
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="./DoAnWeb2020/public/resources/js/scripts.js"></script>
 </body>
 
 </html>
