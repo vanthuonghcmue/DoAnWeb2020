@@ -9,7 +9,7 @@ require_once __DIR__ . "/../../autoload/autoload.php";
     <div class="container" style="min-height:664px">
         <table class="table table-hover">
             <thead>
-                <tr id="alll">
+                <tr id="alll"> 
                     <th style="width:15%">Mã đơn hàng</th>
                     <th style="width:20%">Ngày mua</th>
                     <th style="width:25%">Tên sản phẩm</th>
