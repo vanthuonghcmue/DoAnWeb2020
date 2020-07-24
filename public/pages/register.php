@@ -83,14 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         <div class="form-gp">
                             
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1" name="password1" required minlength="8">
+                            <label for="exampleInputPassword11">Password</label>
+                            <input type="password" id="exampleInputPassword11" name="password1" required minlength="8">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
-                            <label for="exampleInputPassword2">Confirm Password</label>
-                            <input type="password" id="exampleInputPassword2" name="password2" required >
+                            <label for="exampleInputPassword22">Confirm Password</label>
+                            <input type="password" id="exampleInputPassword22" name="password2" required >
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>

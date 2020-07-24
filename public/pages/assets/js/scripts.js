@@ -71,22 +71,6 @@
             $("#sticky-header").removeClass("sticky-menu");
         }
     });
-/*================================
-    xác nhận mật khẩu
-    ==================================*/
-    var exampleInputPassword1 = document.getElementById("exampleInputPassword1")
-  , exampleInputPassword2 = document.getElementById("exampleInputPassword2");
-
- function validatePassword(){
-  if(exampleInputPassword1.value != exampleInputPassword2.value) {
-    exampleInputPassword2.setCustomValidity("Mật khẩu không khớp");
-  } else {
-    exampleInputPassword2.setCustomValidity('');
-  }
-}
-
-exampleInputPassword1.onchange = validatePassword;
-exampleInputPassword2.onkeyup = validatePassword;
     /*================================
     form bootstrap validation
     ==================================*/
@@ -146,7 +130,23 @@ exampleInputPassword2.onkeyup = validatePassword;
             $(this).parent('.form-gp').removeClass('focused');
         }
     });
+/*================================
+    xác nhận mật khẩu
+    ==================================*/
+ var exampleInputPassword11 = document.getElementById("exampleInputPassword11")
+  , exampleInputPassword22 = document.getElementById("exampleInputPassword22");
 
+ function validatePassword(){
+  if(exampleInputPassword11.value != exampleInputPassword22.value) {
+    exampleInputPassword22.setCustomValidity("Mật khẩu không khớp");
+  } else {
+    exampleInputPassword22.setCustomValidity('');
+  }
+}
+
+exampleInputPassword11.onchange = validatePassword;
+exampleInputPassword22.onkeyup = validatePassword;
+    // update gio hang
     /*================================
     slider-area background setting
     ==================================*/
