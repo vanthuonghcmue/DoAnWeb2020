@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <?php 
                                 $dsLoai= DataProvider::ExecuteQuery( "SELECT * FROM `type`");
                                 while($loaisp = mysqli_fetch_array($dsLoai)){ ?>
-                                <option value='<?php $loaisp['id']?>'  <?php echo $row['type']==$loaisp['id'] ? "selected ='selected'" : ' ' ?>> <?php echo $loaisp['name'] ?> </option>  ;
+                                <option value='  <?php echo $loaisp['id']?>'  <?php echo $row['type']==$loaisp['id'] ? "selected ='selected'" : ' ' ?>> <?php echo $loaisp['name'] ?> </option>  ;
                                <?php }
                                 ?>
                             </select>
@@ -120,12 +120,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <?php
 if (isset($_REQUEST['TenSP'])) {
-    $sql = "UPDATE `product` SET `name` = '{$_REQUEST['TenSP']}',`soluong` = '{$_REQUEST['soluong']}' ,`gia` = '{$_REQUEST['Gia']}',`sale` = '{$_REQUEST['GiamGia']}' ,`category` = '{$_REQUEST['loaisp']}',`type` = '{$_REQUEST['type']}',`content` = '{$_REQUEST['noidung']} 'WHERE `product`.`id` = $id";
-    echo $sql;
+    // $sql = "UPDATE `product` SET `name` = '{$_REQUEST['TenSP']}',`soluong` = '{$_REQUEST['soluong']}' ,`gia` = '{$_REQUEST['Gia']}',`sale` = '{$_REQUEST['GiamGia']}' ,`category` = '{$_REQUEST['loaisp']}',`type` = '{$_REQUEST['type']}',`content` = '{$_REQUEST['noidung']} 'WHERE `product`.`id` = $id";
+    $sql = " UPDATE `product` SET `name` = '{$_REQUEST['TenSP']}', `soluong` = '{$_REQUEST['soluong']}', `gia` = '{$_REQUEST['Gia']}', `sale` = '{$_REQUEST['GiamGia']}',`category` = '{$_REQUEST['loaisp']}', `type` = '{$_REQUEST['type']}', `content` = '{$_REQUEST['noidung']}' WHERE `product`.`id` =  $id";
+   
+   
     DataProvider::ExecuteQuery($sql);
     if (@$_FILES['Hinh']['error'] == 0) {
         move_uploaded_file(@$_FILES['Hinh']["tmp_name"], "img_product/". @$_FILES['Hinh']["name"]);
-        $sql = "UPDATE `product` SET  `avatar` = '{$_FILES['Hinh']['name']}' ,' WHERE `product`.`id` = $id";
+        $sql = "UPDATE `product` SET  `avatar` = '{$_FILES['Hinh']['name']}'  WHERE `product`.`id` = $id";
+     
         echo $sql;
         DataProvider::ExecuteQuery($sql);
     }

@@ -53,7 +53,7 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Ảnh Đại Diện</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" required>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Hinh" >
                             <img src="/DoAnWeb2020/admin/modules/users/img_users/<?php echo $row['avatar'] ?>" >
                         </div>
 
