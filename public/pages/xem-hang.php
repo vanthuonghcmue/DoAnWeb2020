@@ -95,7 +95,7 @@ require_once __DIR__ . "/../../autoload/autoload.php";
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="review-content-section">
-                                        <p>
+                                        <p class="thongtinsp">
 
                                         <?php echo $row['content'] ?>
                                         </p>

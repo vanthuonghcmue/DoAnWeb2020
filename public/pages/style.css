@@ -1413,14 +1413,17 @@ ul#single-product-tab li{
 .review-content-section{
 	margin-top: 15px;
     margin-left: 15px;
-    margin-right: 400px;
+    margin-right: 10px;
 
 }
 .review-content-section p{
 	color:#606060;
-	font-weight:400;
+	font-weight:400px;
 	font-size:20px;
-	line-height:24px;
+    line-height:24px;
+    font-family: "Dancing Script", cursive;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 3px;
 }
 .suggested-heading{
 	width:33%;
